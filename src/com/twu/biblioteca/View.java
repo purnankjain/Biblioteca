@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class View {
 
     public void greetUser() {
-        System.out.print("--WELCOME TO BIBLIOTECA--");
+        System.out.println("--WELCOME TO BIBLIOTECA--");
     }
 
     public void printBookNamesToConsole(ArrayList<String> bookList) {

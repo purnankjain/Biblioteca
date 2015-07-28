@@ -14,16 +14,18 @@ import static org.junit.Assert.assertEquals;
 public class ViewTest {
 
     private ByteArrayOutputStream outContent;
+    private PrintStream original;
 
     @Before
     public void setUpstream() {
+        original = System.out;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }
 
     @After
     public void clearStream() {
-        System.setOut(null);
+        System.setOut(original);
     }
 
     @Test
@@ -31,7 +33,7 @@ public class ViewTest {
         View view =  new View();
         view.greetUser();
 
-        assertEquals("--WELCOME TO BIBLIOTECA--", outContent.toString());
+        assertEquals("--WELCOME TO BIBLIOTECA--\n", outContent.toString());
     }
 
     @Test
