@@ -10,6 +10,7 @@ import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
+
 public class ViewTest {
 
     private ByteArrayOutputStream outContent;
@@ -43,6 +44,6 @@ public class ViewTest {
 
         view.printBookNamesToConsole(bookList);
 
-        assertEquals(bookList, outContent.toString());
+        assertEquals(bookList.toString(), outContent.toString());
     }
 }
