@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 
@@ -29,6 +30,19 @@ public class ViewTest {
         View view =  new View();
         view.greetUser();
 
-        assertEquals("--WELCOME TO BIBLIOTECA--\n", outContent.toString());
+        assertEquals("--WELCOME TO BIBLIOTECA--", outContent.toString());
+    }
+
+    @Test
+    public void shouldPrintAllBookNames() {
+        View view =  new View();
+        ArrayList<String> bookList = new ArrayList<String>();
+        bookList.add("The Alchemist");
+        bookList.add("Harry Potter And the Half Blood Prince");
+        bookList.add("White Tiger");
+
+        view.printBookNamesToConsole(bookList);
+
+        assertEquals(bookList, outContent.toString());
     }
 }
