@@ -1,5 +1,5 @@
 package com.twu.biblioteca;
 
 public interface MenuItem {
-    void execute();
+    void execute(View view);
 }
