@@ -35,6 +35,8 @@ public class BookLibrary implements MenuItem{
 
     @Override
     public void execute(View view) {
-
+        for(Book book : bookList) {
+            view.printToConsole(book.toString() + "\n");
+        }
     }
 }
