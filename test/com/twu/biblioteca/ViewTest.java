@@ -4,8 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
@@ -14,20 +13,25 @@ import static org.junit.Assert.assertEquals;
 public class ViewTest {
 
     private ByteArrayOutputStream outContent;
-    private PrintStream original;
+    private PrintStream originalOut;
     private View view;
+    private InputStream originalIn;
+    private String toCheck;
 
     @Before
     public void setUpstream() {
-        view =  new View();
-        original = System.out;
+        toCheck = "Hello";
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(toCheck.getBytes());
+        view =  new View(new BufferedReader(new InputStreamReader(byteArrayInputStream)));
+        originalOut = System.out;
+        originalIn = System.in;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
     }
 
     @After
     public void clearStream() {
-        System.setOut(original);
+        System.setOut(originalOut);
     }
 
     @Test
@@ -56,5 +60,12 @@ public class ViewTest {
         view.printToConsole(toPrint);
 
         assertEquals(toPrint, outContent.toString());
+    }
+
+    @Test
+    public void shouldReturnUserInput() {
+        String userInput = view.readUserInput();
+
+        assertEquals(toCheck, userInput);
     }
 }
