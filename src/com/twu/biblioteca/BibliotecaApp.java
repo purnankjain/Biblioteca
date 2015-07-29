@@ -15,7 +15,8 @@ public class BibliotecaApp {
         Book book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         BookLibrary bookLibrary = new BookLibrary(bookList);
         Quit quit = new Quit();
-        Menu menu = new Menu(bookLibrary, quit);
+        InvalidMenuItem invalidMenuItem = new InvalidMenuItem();
+        Menu menu = new Menu(bookLibrary, quit, invalidMenuItem);
         bookList.add(book1);
         bookList.add(book2);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);
