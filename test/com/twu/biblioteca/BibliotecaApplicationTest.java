@@ -12,12 +12,14 @@ public class BibliotecaApplicationTest {
     BibliotecaApplication bibliotecaApplication;
     BookLibrary mockLibrary;
     View mockView;
+    Menu mockMenu;
 
     @Before
     public void initialise() {
         mockView = mock(View.class);
         mockLibrary = mock(BookLibrary.class);
-        bibliotecaApplication = new BibliotecaApplication(mockView, mockLibrary);
+        mockMenu = mock(Menu.class);
+        bibliotecaApplication = new BibliotecaApplication(mockView, mockLibrary, mockMenu);
     }
 
     @Test
@@ -35,5 +37,12 @@ public class BibliotecaApplicationTest {
         bibliotecaApplication.start();
         verify(mockView, times(1)).greetUser();
         verify(mockView, times(1)).printBookNamesToConsole(bookList);
+    }
+
+    @Test
+    public void shouldInvokeMenuRender() {
+        bibliotecaApplication.start();
+
+        verify(mockMenu).renderMenu(mockView);
     }
 }
