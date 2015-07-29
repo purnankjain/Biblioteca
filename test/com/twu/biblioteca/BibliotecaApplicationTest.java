@@ -29,8 +29,7 @@ public class BibliotecaApplicationTest {
     @Test
     public void shouldInvokeBookLibraryAfterGreeting() {
         ArrayList<String> bookList = new ArrayList<String>();
-        bookList.add("The Alchemist");
-        bookList.add("Harry Potter And the Half Blood Prince");
+        bookList.add("Harry Potter");
         bookList.add("White Tiger");
         when(mockLibrary.getAllBooks()).thenReturn(bookList);
         bibliotecaApplication.start();

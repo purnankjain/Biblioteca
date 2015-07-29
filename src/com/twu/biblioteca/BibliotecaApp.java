@@ -7,10 +7,11 @@ public class BibliotecaApp {
     public static void main(String[] args) {
 
         View view = new View();
-        ArrayList<String> bookList = new ArrayList<String>();
-        bookList.add("The Alchemist");
-        bookList.add("Harry Potter And the Half Blood Prince");
-        bookList.add("White Tiger");
+        ArrayList<Book> bookList = new ArrayList<Book>();
+        Book book1 = new Book(1, "The Alchemist", "Poelo Coehlo", 2005);
+        Book book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
+        bookList.add(book1);
+        bookList.add(book2);
         BookLibrary bookLibrary = new BookLibrary(bookList);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, bookLibrary);
         bibliotecaApplication.start();
