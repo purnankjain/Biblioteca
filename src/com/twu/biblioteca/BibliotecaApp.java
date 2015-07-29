@@ -13,11 +13,11 @@ public class BibliotecaApp {
         ArrayList<Book> bookList = new ArrayList<Book>();
         Book book1 = new Book(1, "The Alchemist", "Poelo Coehlo", 2005);
         Book book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
-        Menu menu = new Menu();
+        BookLibrary bookLibrary = new BookLibrary(bookList);
+        Menu menu = new Menu(bookLibrary);
         bookList.add(book1);
         bookList.add(book2);
-        BookLibrary bookLibrary = new BookLibrary(bookList);
-        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, bookLibrary, menu);
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);
         bibliotecaApplication.start();
     }
 }
