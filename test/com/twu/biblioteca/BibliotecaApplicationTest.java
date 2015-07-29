@@ -25,6 +25,7 @@ public class BibliotecaApplicationTest {
     @Test
     public void shouldGreetUser() {
         bibliotecaApplication.start();
+
         verify(mockView, times(1)).greetUser();
     }
 
@@ -33,8 +34,10 @@ public class BibliotecaApplicationTest {
         ArrayList<String> bookList = new ArrayList<String>();
         bookList.add("Harry Potter");
         bookList.add("White Tiger");
+
         when(mockLibrary.getAllBooks()).thenReturn(bookList);
         bibliotecaApplication.start();
+
         verify(mockView, times(1)).greetUser();
         verify(mockView, times(1)).printBookNamesToConsole(bookList);
     }

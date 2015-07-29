@@ -16,4 +16,20 @@ public class BookLibrary {
         }
         return tempList;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BookLibrary that = (BookLibrary) o;
+
+        return !(bookList != null ? !bookList.equals(that.bookList) : that.bookList != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return bookList != null ? bookList.hashCode() : 0;
+    }
 }
