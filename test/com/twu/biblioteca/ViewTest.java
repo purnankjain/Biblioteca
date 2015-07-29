@@ -15,9 +15,11 @@ public class ViewTest {
 
     private ByteArrayOutputStream outContent;
     private PrintStream original;
+    private View view;
 
     @Before
     public void setUpstream() {
+        view =  new View();
         original = System.out;
         outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
@@ -30,7 +32,6 @@ public class ViewTest {
 
     @Test
     public void shouldGreetUserWithWelcomeMessage() {
-        View view =  new View();
         view.greetUser();
 
         assertEquals("--WELCOME TO BIBLIOTECA--\n", outContent.toString());
@@ -38,7 +39,6 @@ public class ViewTest {
 
     @Test
     public void shouldPrintAllBookNames() {
-        View view =  new View();
         ArrayList<String> bookList = new ArrayList<String>();
         bookList.add("The Alchemist");
         bookList.add("Harry Potter And the Half Blood Prince");
@@ -47,5 +47,14 @@ public class ViewTest {
         view.printBookNamesToConsole(bookList);
 
         assertEquals(bookList.toString(), outContent.toString());
+    }
+
+    @Test
+    public void shouldPassCorrectContentToPrint() {
+        String toPrint = "Hello World";
+
+        view.printToConsole(toPrint);
+
+        assertEquals(toPrint, outContent.toString());
     }
 }

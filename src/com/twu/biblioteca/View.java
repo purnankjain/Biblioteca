@@ -12,4 +12,8 @@ public class View {
     public void printBookNamesToConsole(ArrayList<String> bookList) {
         System.out.print(bookList);
     }
+
+    public void printToConsole(String toPrint) {
+        System.out.print(toPrint);
+    }
 }
