@@ -14,7 +14,8 @@ public class BibliotecaApp {
         Book book1 = new Book(1, "The Alchemist", "Poelo Coehlo", 2005);
         Book book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         BookLibrary bookLibrary = new BookLibrary(bookList);
-        Menu menu = new Menu(bookLibrary);
+        Quit quit = new Quit();
+        Menu menu = new Menu(bookLibrary, quit);
         bookList.add(book1);
         bookList.add(book2);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);

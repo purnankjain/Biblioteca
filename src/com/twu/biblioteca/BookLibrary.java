@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookLibrary{
+public class BookLibrary implements MenuItem{
     private ArrayList<Book> bookList;
 
     public BookLibrary(ArrayList<Book> bookList) {
@@ -31,5 +31,10 @@ public class BookLibrary{
     @Override
     public int hashCode() {
         return bookList != null ? bookList.hashCode() : 0;
+    }
+
+    @Override
+    public void execute() {
+
     }
 }
