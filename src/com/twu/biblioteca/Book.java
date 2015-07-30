@@ -1,37 +1,18 @@
 package com.twu.biblioteca;
 
-public class Book implements ListItem{
+public class Book {
     private String name;
     private String author;
     private int publishYear;
-    boolean isCheckedOut;
 
     public Book(String name, String author, int publishYear) {
         this.name = name;
         this.author = author;
         this.publishYear = publishYear;
-        this.isCheckedOut = false;
     }
 
     public boolean isTitled(String nameToCheck) {
         return (name.equals(nameToCheck));
-    }
-
-    @Override
-    public boolean checkOutThis() {
-        if(!isCheckedOut) {
-            isCheckedOut = true;
-            return true;
-        }
-        return false;
-    }
-
-    public boolean returnThis() {
-        if(isCheckedOut) {
-            isCheckedOut = false;
-            return true;
-        }
-        return false;
     }
 
     @Override

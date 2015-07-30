@@ -41,7 +41,6 @@ public class BookLibraryTest {
         bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
-        when(mockBook.checkOutThis()).thenReturn(true);
 
         assertEquals("Thank you! Enjoy the book", bookLibrary.checkOutItem("Hello"));
     }
