@@ -16,6 +16,7 @@ public class ReturnOption implements MenuOption {
 
     @Override
     public void execute(View view) {
-
+        view.printToConsole("Enter book to Return : \n");
+        view.printToConsole(bookLibrary.returnThisItem(view.readUserInput()));
     }
 }
