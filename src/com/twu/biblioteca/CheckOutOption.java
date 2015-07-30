@@ -11,6 +11,8 @@ public class CheckOutOption implements MenuOption {
 
     @Override
     public void execute(View view) {
+        view.printToConsole("Enter book to checkout : \n");
+        view.printToConsole(bookLibrary.checkOutItem(view.readUserInput()));
     }
 
     @Override

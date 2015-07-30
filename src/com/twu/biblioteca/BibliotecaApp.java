@@ -19,6 +19,8 @@ public class BibliotecaApp {
         ListBooksOption listBooksOption = new ListBooksOption("List Books", bookLibrary);
         ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
         menuOptions.add(listBooksOption);
+        menuOptions.add(new CheckOutOption("CheckOut Book", bookLibrary));
+        menuOptions.add(new ReturnOption("Return Book", bookLibrary));
         menuOptions.add(quitOption);
         Menu menu = new Menu(menuOptions, invalidMenuOption);
         bookList.add(book1);
