@@ -59,7 +59,7 @@ public class ViewTest {
 
         view.printToConsole(toPrint);
 
-        assertEquals(toPrint, outContent.toString());
+        assertEquals(toPrint + "\n", outContent.toString());
     }
 
     @Test

@@ -30,14 +30,6 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldCallPrintOfView() {
-        menu.renderMenu(mockView);
-
-        verify(mockView, atLeastOnce()).printToConsole("===========================");
-        verify(mockView, times(1)).printToConsole("List Books");
-    }
-
-    @Test
     public void shouldReturnListBooksOption() {
         ArrayList<Book> books = new ArrayList<Book>();
         BookLibrary bookLibrary  = new BookLibrary(books, new ArrayList<Book>());

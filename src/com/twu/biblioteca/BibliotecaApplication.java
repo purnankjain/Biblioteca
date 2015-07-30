@@ -15,7 +15,7 @@ public class BibliotecaApplication {
         MenuOption menuOption = null;
         String input;
         while(true) {
-            menu.renderMenu(view);
+            view.printToConsole(menu.renderMenu());
             input = view.readUserInput();
             menuOption = menu.selectItem(input);
             menuOption.execute(view);

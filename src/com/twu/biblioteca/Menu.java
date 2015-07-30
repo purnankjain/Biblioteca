@@ -12,11 +12,16 @@ public class Menu {
         this.invalidMenuOption = invalidMenuOption;
     }
 
-    public void renderMenu(View view) {
-        view.printToConsole("===========================");
-        view.printToConsole("List Books");
-        view.printToConsole("Quit");
-        view.printToConsole("===========================");
+    public String renderMenu() {
+        String menu = "";
+        menu += "=========================\n";
+        menu += "List Books\n";
+        menu += "CheckOut Book\n";
+        menu += "Return Book\n";
+        menu += "Quit\n";
+        menu += "=========================\n\n";
+        menu += "Enter Choice : ";
+        return menu;
     }
 
     public MenuOption selectItem(String userInput) {

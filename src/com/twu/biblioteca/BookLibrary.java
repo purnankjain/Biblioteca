@@ -33,8 +33,8 @@ public class BookLibrary {
     public String returnThisItem(String item) {
         for(Book book : unAvailableBookList) {
             if(book.isTitled(item)) {
-                unAvailableBookList.add(book);
-                availableBookList.remove(book);
+                availableBookList.add(book);
+                unAvailableBookList.remove(book);
                 return "Thank you for returning the book.";
             }
         }

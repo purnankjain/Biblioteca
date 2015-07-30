@@ -20,7 +20,7 @@ public class View {
     }
 
     public void printToConsole(String toPrint) {
-        System.out.print(toPrint);
+        System.out.println(toPrint);
     }
 
     public String readUserInput() {
