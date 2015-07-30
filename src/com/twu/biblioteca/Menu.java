@@ -2,12 +2,12 @@ package com.twu.biblioteca;
 
 
 public class Menu {
-    BookLibrary bookLibrary;
+    ListBooksOption listBooksOption;
     QuitOption quitOption;
     InvalidMenuOption invalidMenuOption;
 
-    public Menu(BookLibrary bookLibrary, QuitOption quitOption, InvalidMenuOption invalidMenuOption) {
-        this.bookLibrary = bookLibrary;
+    public Menu(ListBooksOption listBooksOption, QuitOption quitOption, InvalidMenuOption invalidMenuOption) {
+        this.listBooksOption = listBooksOption;
         this.quitOption = quitOption;
         this.invalidMenuOption = invalidMenuOption;
     }
@@ -21,7 +21,7 @@ public class Menu {
 
     public MenuOption selectItem(String userInput) {
         if (userInput.equals("List Books")) {
-            return bookLibrary;
+            return listBooksOption;
         } else if (userInput.equals("Quit")) {
             return quitOption;
         }

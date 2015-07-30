@@ -1,21 +1,23 @@
 package com.twu.biblioteca;
 
-public class Book extends ListItem{
+public class Book implements ListItem{
+    String name;
     String author;
     int publishYear;
     boolean isCheckedOut;
 
-    public Book(int id, String name, String author, int publishYear) {
-        super(id, name);
+    public Book(String name, String author, int publishYear) {
+        this.name = name;
         this.author = author;
         this.publishYear = publishYear;
-        isCheckedOut = false;
+        this.isCheckedOut = false;
     }
 
     public boolean isTitled(String nameToCheck) {
         return (name.equals(nameToCheck));
     }
 
+    @Override
     public boolean checkOut() {
         if(!isCheckedOut) {
             isCheckedOut = true;
@@ -30,16 +32,13 @@ public class Book extends ListItem{
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-
-        Book book = (Book) o;
-
-        if (publishYear != book.publishYear) return false;
-        return !(author != null ? !author.equals(book.author) : book.author != null);
-
+    public boolean equals(Object otherObject) {
+        if (this == otherObject) return true;
+        if (otherObject == null || getClass() != otherObject.getClass()) return false;
+        if (!super.equals(otherObject)) return false;
+        Book otherBook = (Book) otherObject;
+        if (publishYear != otherBook.publishYear) return false;
+        return !(author != null ? !author.equals(otherBook.author) : otherBook.author != null);
     }
 
     @Override

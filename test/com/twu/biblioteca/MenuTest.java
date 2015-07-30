@@ -15,6 +15,7 @@ public class MenuTest {
     BookLibrary mockBookLibrary;
     QuitOption mockQuitOption;
     InvalidMenuOption mockInvalidMenuOption;
+    ListBooksOption mockListBooksOption;
 
     @Before
     public void initialise() {
@@ -22,7 +23,8 @@ public class MenuTest {
         mockQuitOption = mock(QuitOption.class);
         mockInvalidMenuOption = mock(InvalidMenuOption.class);
         mockBookLibrary = mock(BookLibrary.class);
-        menu = new Menu(mockBookLibrary, mockQuitOption, mockInvalidMenuOption);
+        mockListBooksOption = mock(ListBooksOption.class);
+        menu = new Menu(mockListBooksOption, mockQuitOption, mockInvalidMenuOption);
     }
 
     @Test
@@ -34,18 +36,19 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnBookLibrary() {
+    public void shouldReturnListBooksOption() {
         ArrayList<Book> books = new ArrayList<Book>();
         BookLibrary bookLibrary  = new BookLibrary(books);
-        menu = new Menu(bookLibrary, mockQuitOption, mockInvalidMenuOption);
+        ListBooksOption listBooksOption = new ListBooksOption(bookLibrary);
+        menu = new Menu(listBooksOption, mockQuitOption, mockInvalidMenuOption);
 
-        assertEquals(BookLibrary.class, menu.selectItem("List Books").getClass());
+        assertEquals(ListBooksOption.class, menu.selectItem("List Books").getClass());
     }
 
     @Test
     public void shouldReturnQuit() {
         QuitOption quitOption = new QuitOption();
-        menu = new Menu(mockBookLibrary, quitOption, mockInvalidMenuOption);
+        menu = new Menu(mockListBooksOption, quitOption, mockInvalidMenuOption);
 
         assertEquals(QuitOption.class, menu.selectItem("Quit").getClass());
     }
@@ -53,7 +56,7 @@ public class MenuTest {
     @Test
     public void shouldReturnInvalidMenuItem() {
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-        menu = new Menu(mockBookLibrary, mockQuitOption, invalidMenuOption);
+        menu = new Menu(mockListBooksOption, mockQuitOption, invalidMenuOption);
 
         assertEquals(InvalidMenuOption.class, menu.selectItem("Blah").getClass());
     }

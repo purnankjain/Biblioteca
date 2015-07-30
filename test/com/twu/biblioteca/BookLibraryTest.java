@@ -17,8 +17,8 @@ public class BookLibraryTest {
     @Before
     public void initialiseBookList() {
         bookList = new ArrayList<Book>();
-        book1 = new Book(1, "The Alchemist", "Poelo Coehlo", 2005);
-        book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
+        book1 = new Book("The Alchemist", "Poelo Coehlo", 2005);
+        book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
         bookLibrary = new BookLibrary(bookList);
@@ -31,22 +31,6 @@ public class BookLibraryTest {
         expectedBookList.add("Harry Potter And the Half Blood Prince, J.K Rowling, 2005");
 
         assertEquals(expectedBookList, bookLibrary.getAllBooks());
-    }
-
-    @Test
-    public void checkForEquality() {
-        BookLibrary bookLibrary1 = new BookLibrary(bookList);
-
-        assertEquals(bookLibrary1, bookLibrary);
-    }
-
-    @Test
-    public void shouldCallPrintToConsoleInExecute() {
-        View mockView = mock(View.class);
-
-        bookLibrary.execute(mockView);
-
-        verify(mockView).printToConsole(book1.toString() + "\n");
     }
 
     @Test

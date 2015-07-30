@@ -11,12 +11,13 @@ public class BibliotecaApp {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         View view = new View(bufferedReader);
         ArrayList<Book> bookList = new ArrayList<Book>();
-        Book book1 = new Book(1, "The Alchemist", "Poelo Coehlo", 2005);
-        Book book2 = new Book(2, "Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
+        Book book1 = new Book("The Alchemist", "Poelo Coehlo", 2005);
+        Book book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         BookLibrary bookLibrary = new BookLibrary(bookList);
         QuitOption quitOption = new QuitOption();
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-        Menu menu = new Menu(bookLibrary, quitOption, invalidMenuOption);
+        ListBooksOption listBooksOption = new ListBooksOption(bookLibrary);
+        Menu menu = new Menu(listBooksOption, quitOption, invalidMenuOption);
         bookList.add(book1);
         bookList.add(book2);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);

@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookLibrary implements MenuOption {
+public class BookLibrary {
     private ArrayList<Book> bookList;
 
     public BookLibrary(ArrayList<Book> bookList) {
@@ -17,30 +17,6 @@ public class BookLibrary implements MenuOption {
         return tempList;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        BookLibrary that = (BookLibrary) o;
-
-        return !(bookList != null ? !bookList.equals(that.bookList) : that.bookList != null);
-
-    }
-
-    @Override
-    public int hashCode() {
-        return bookList != null ? bookList.hashCode() : 0;
-    }
-
-    @Override
-    public void execute(View view) {
-        for(Book book : bookList) {
-            view.printToConsole(book.toString() + "\n");
-        }
-    }
-
-    @Override
     public String checkOutItem(String item) {
         for(Book book : bookList) {
             if(book.isTitled(item))
