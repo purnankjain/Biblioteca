@@ -4,14 +4,14 @@ import org.junit.Test;
 
 import static org.mockito.Mockito.*;
 
-public class InvalidMenuItemTest {
+public class InvalidMenuOptionTest {
 
     @Test
     public void shouldCallViewPrintToConsole() {
         View mockView = mock(View.class);
-        InvalidMenuItem invalidMenuItem = new InvalidMenuItem();
+        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
 
-        invalidMenuItem.execute(mockView);
+        invalidMenuOption.execute(mockView);
 
         verify(mockView).printToConsole("Select a valid option!");
     }

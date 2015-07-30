@@ -3,13 +3,13 @@ package com.twu.biblioteca;
 
 public class Menu {
     BookLibrary bookLibrary;
-    Quit quit;
-    InvalidMenuItem invalidMenuItem;
+    QuitOption quitOption;
+    InvalidMenuOption invalidMenuOption;
 
-    public Menu(BookLibrary bookLibrary, Quit quit, InvalidMenuItem invalidMenuItem) {
+    public Menu(BookLibrary bookLibrary, QuitOption quitOption, InvalidMenuOption invalidMenuOption) {
         this.bookLibrary = bookLibrary;
-        this.quit = quit;
-        this.invalidMenuItem = invalidMenuItem;
+        this.quitOption = quitOption;
+        this.invalidMenuOption = invalidMenuOption;
     }
 
     public void renderMenu(View view) {
@@ -19,12 +19,12 @@ public class Menu {
         view.printToConsole("===========================");
     }
 
-    public MenuItem selectItem(String userInput) {
+    public MenuOption selectItem(String userInput) {
         if (userInput.equals("List Books")) {
             return bookLibrary;
         } else if (userInput.equals("Quit")) {
-            return quit;
+            return quitOption;
         }
-        return invalidMenuItem;
+        return invalidMenuOption;
     }
 }

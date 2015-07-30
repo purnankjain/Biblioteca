@@ -2,7 +2,7 @@ package com.twu.biblioteca;
 
 import java.util.ArrayList;
 
-public class BookLibrary implements MenuItem{
+public class BookLibrary implements MenuOption {
     private ArrayList<Book> bookList;
 
     public BookLibrary(ArrayList<Book> bookList) {
