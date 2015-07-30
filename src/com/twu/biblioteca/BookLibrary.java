@@ -20,7 +20,7 @@ public class BookLibrary {
     public String checkOutItem(String item) {
         for(Book book : bookList) {
             if(book.isTitled(item))
-                if(book.checkOut())
+                if(book.checkOutThis())
                     return "Thank you! Enjoy the book";
         }
         return "That book is not available.";

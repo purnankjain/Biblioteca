@@ -41,7 +41,7 @@ public class BookLibraryTest {
         bookLibrary = new BookLibrary(bookList);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
-        when(mockBook.checkOut()).thenReturn(true);
+        when(mockBook.checkOutThis()).thenReturn(true);
 
         assertEquals("Thank you! Enjoy the book", bookLibrary.checkOutItem("Hello"));
     }
@@ -54,7 +54,7 @@ public class BookLibraryTest {
         bookLibrary = new BookLibrary(bookList);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
-        when(mockBook.checkOut()).thenReturn(false);
+        when(mockBook.checkOutThis()).thenReturn(false);
 
         assertEquals("That book is not available.", bookLibrary.checkOutItem("Hello"));
     }

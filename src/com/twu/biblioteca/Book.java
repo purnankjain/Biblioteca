@@ -18,9 +18,17 @@ public class Book implements ListItem{
     }
 
     @Override
-    public boolean checkOut() {
+    public boolean checkOutThis() {
         if(!isCheckedOut) {
             isCheckedOut = true;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean returnThis() {
+        if(isCheckedOut) {
+            isCheckedOut = false;
             return true;
         }
         return false;
