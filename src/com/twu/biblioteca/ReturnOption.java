@@ -1,16 +1,12 @@
 package com.twu.biblioteca;
 
-public class CheckOutOption implements MenuOption {
-    String name;
+public class ReturnOption implements MenuOption {
+    private String name;
     private BookLibrary bookLibrary;
 
-    public CheckOutOption(String name, BookLibrary bookLibrary) {
+    public ReturnOption(String name, BookLibrary bookLibrary) {
         this.name = name;
         this.bookLibrary = bookLibrary;
-    }
-
-    @Override
-    public void execute(View view) {
     }
 
     @Override
@@ -18,4 +14,8 @@ public class CheckOutOption implements MenuOption {
         return name;
     }
 
+    @Override
+    public void execute(View view) {
+
+    }
 }

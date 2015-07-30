@@ -51,7 +51,7 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnQuit() {
+    public void shouldReturnQuitOption() {
         QuitOption quitOption = new QuitOption("Quit");
         ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
         menuOptions.add(mockListBooksOption);
@@ -62,7 +62,7 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnInvalidMenuItem() {
+    public void shouldReturnInvalidMenuOption() {
         menuOptions.add(mockListBooksOption);
         menuOptions.add(mockQuitOption);
         menu = new Menu(menuOptions, new InvalidMenuOption());
@@ -71,10 +71,18 @@ public class MenuTest {
     }
 
     @Test
-    public void shouldReturnCheckOutItem() {
-        menuOptions.add(new CheckOutOption("CheckOut"));
+    public void shouldReturnCheckOutOption() {
+        menuOptions.add(new CheckOutOption("CheckOut", mockBookLibrary));
         menu = new Menu(menuOptions, new InvalidMenuOption());
 
         assertEquals(CheckOutOption.class, menu.selectItem("CheckOut").getClass());
+    }
+
+    @Test
+    public void shouldReturnReturnOption() {
+        menuOptions.add(new ReturnOption("Return", mockBookLibrary));
+        menu = new Menu(menuOptions, new InvalidMenuOption());
+
+        assertEquals(ReturnOption.class, menu.selectItem("Return").getClass());
     }
 }
