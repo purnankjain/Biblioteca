@@ -47,6 +47,6 @@ public class BookLibrary implements MenuItem{
                 if(book.checkOut())
                     return "Thank you! Enjoy the book";
         }
-        return null;
+        return "That book is not available.";
     }
 }

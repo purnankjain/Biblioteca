@@ -61,4 +61,17 @@ public class BookLibraryTest {
 
         assertEquals("Thank you! Enjoy the book", bookLibrary.checkOutItem("Hello"));
     }
+
+    @Test
+    public void shouldNotCheckOutABookWhenNotAvailable() {
+        bookList = new ArrayList<Book>();
+        Book mockBook = mock(Book.class);
+        bookList.add(mockBook);
+        bookLibrary = new BookLibrary(bookList);
+
+        when(mockBook.isTitled("Hello")).thenReturn(true);
+        when(mockBook.checkOut()).thenReturn(false);
+
+        assertEquals("That book is not available.", bookLibrary.checkOutItem("Hello"));
+    }
 }
