@@ -16,7 +16,7 @@ public class Book extends ListItem{
         return (name.equals(nameToCheck));
     }
 
-    public boolean checkout() {
+    public boolean checkOut() {
         if(!isCheckedOut) {
             isCheckedOut = true;
             return true;

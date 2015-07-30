@@ -39,4 +39,14 @@ public class BookLibrary implements MenuItem{
             view.printToConsole(book.toString() + "\n");
         }
     }
+
+    @Override
+    public String checkOutItem(String item) {
+        for(Book book : bookList) {
+            if(book.isTitled(item))
+                if(book.checkOut())
+                    return "Thank you! Enjoy the book";
+        }
+        return null;
+    }
 }

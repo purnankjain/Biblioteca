@@ -18,6 +18,6 @@ public class BookTest {
     public void shouldCheckOut() {
         Book book = new Book(1, "Harry Potter", "J.K. Rowling", 1998);
 
-        assertEquals(true, book.checkout());
+        assertEquals(true, book.checkOut());
     }
 }

@@ -49,4 +49,16 @@ public class BookLibraryTest {
         verify(mockView).printToConsole(book1.toString() + "\n");
     }
 
+    @Test
+    public void shouldCheckOutABook() {
+        bookList = new ArrayList<Book>();
+        Book mockBook = mock(Book.class);
+        bookList.add(mockBook);
+        bookLibrary = new BookLibrary(bookList);
+
+        when(mockBook.isTitled("Hello")).thenReturn(true);
+        when(mockBook.checkOut()).thenReturn(true);
+
+        assertEquals("Thank you! Enjoy the book", bookLibrary.checkOutItem("Hello"));
+    }
 }
