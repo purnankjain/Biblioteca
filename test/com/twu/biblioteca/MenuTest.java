@@ -2,11 +2,11 @@ package com.twu.biblioteca;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
+
 
 public class MenuTest {
 
@@ -52,7 +52,6 @@ public class MenuTest {
 
     @Test
     public void shouldReturnInvalidMenuItem() {
-        Quit quit = new Quit();
         InvalidMenuItem invalidMenuItem = new InvalidMenuItem();
         menu = new Menu(mockBookLibrary, mockQuit, invalidMenuItem);
 

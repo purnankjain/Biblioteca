@@ -3,15 +3,25 @@ package com.twu.biblioteca;
 public class Book extends ListItem{
     String author;
     int publishYear;
+    boolean isCheckedOut;
 
     public Book(int id, String name, String author, int publishYear) {
         super(id, name);
         this.author = author;
         this.publishYear = publishYear;
+        isCheckedOut = false;
     }
 
     public boolean isTitled(String nameToCheck) {
         return (name.equals(nameToCheck));
+    }
+
+    public boolean checkout() {
+        if(!isCheckedOut) {
+            isCheckedOut = true;
+            return true;
+        }
+        return false;
     }
 
     @Override

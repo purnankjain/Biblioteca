@@ -13,4 +13,11 @@ public class BookTest {
 
         assertEquals(true, book.isTitled("Harry Potter"));
     }
+
+    @Test
+    public void shouldCheckOut() {
+        Book book = new Book(1, "Harry Potter", "J.K. Rowling", 1998);
+
+        assertEquals(true, book.checkout());
+    }
 }
