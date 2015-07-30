@@ -6,8 +6,4 @@ public class QuitOption implements MenuOption {
         System.exit(0);
     }
 
-    @Override
-    public String checkOutItem(String item) {
-        return null;
-    }
 }

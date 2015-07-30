@@ -12,6 +12,13 @@ public class BibliotecaApplication {
 
     public void start() {
         view.greetUser();
-        menu.renderMenu(view);
+        MenuOption menuOption = null;
+        String input;
+        while(true) {
+            menu.renderMenu(view);
+            input = view.readUserInput();
+            menuOption = menu.selectItem(input);
+            menuOption.execute(view);
+        }
     }
 }

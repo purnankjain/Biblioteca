@@ -11,12 +11,7 @@ public class ListBooksOption implements MenuOption{
 
     @Override
     public void execute(View view) {
-
-    }
-
-    @Override
-    public String checkOutItem(String item) {
-        return null;
+        view.printToConsole(listBooks());
     }
 
     public String listBooks() {

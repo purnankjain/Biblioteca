@@ -11,7 +11,7 @@ public class BibliotecaApp {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         View view = new View(bufferedReader);
         ArrayList<Book> bookList = new ArrayList<Book>();
-        Book book1 = new Book("The Alchemist", "Poelo Coehlo", 2005);
+        Book book1 = new Book("The Alchemist", "Paulo Coelho", 1988);
         Book book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         BookLibrary bookLibrary = new BookLibrary(bookList);
         QuitOption quitOption = new QuitOption();
