@@ -40,7 +40,7 @@ public class MenuTest {
     @Test
     public void shouldReturnListBooksOption() {
         ArrayList<Book> books = new ArrayList<Book>();
-        BookLibrary bookLibrary  = new BookLibrary(books);
+        BookLibrary bookLibrary  = new BookLibrary(books, new ArrayList<Book>());
         ListBooksOption listBooksOption = new ListBooksOption("List Books", bookLibrary);
         ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
         menuOptions.add(listBooksOption);

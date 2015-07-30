@@ -13,7 +13,7 @@ public class BibliotecaApp {
         ArrayList<Book> bookList = new ArrayList<Book>();
         Book book1 = new Book("The Alchemist", "Paulo Coelho", 1988);
         Book book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
-        BookLibrary bookLibrary = new BookLibrary(bookList);
+        BookLibrary bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
         QuitOption quitOption = new QuitOption("Quit");
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
         ListBooksOption listBooksOption = new ListBooksOption("List Books", bookLibrary);

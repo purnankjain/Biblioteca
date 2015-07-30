@@ -21,7 +21,7 @@ public class BookLibraryTest {
         book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        bookLibrary = new BookLibrary(bookList);
+        bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
     }
 
     @Test
@@ -38,7 +38,7 @@ public class BookLibraryTest {
         bookList = new ArrayList<Book>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        bookLibrary = new BookLibrary(bookList);
+        bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
         when(mockBook.checkOutThis()).thenReturn(true);
@@ -51,11 +51,22 @@ public class BookLibraryTest {
         bookList = new ArrayList<Book>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        bookLibrary = new BookLibrary(bookList);
+        bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
 
-        when(mockBook.isTitled("Hello")).thenReturn(true);
-        when(mockBook.checkOutThis()).thenReturn(false);
+        when(mockBook.isTitled("Hello")).thenReturn(false);
 
         assertEquals("That book is not available.", bookLibrary.checkOutItem("Hello"));
+    }
+
+    @Test
+    public void shouldReturnABookWhichIsCheckedOut() {
+        bookList = new ArrayList<Book>();
+        Book mockBook = mock(Book.class);
+        bookList.add(mockBook);
+        bookLibrary = new BookLibrary(new ArrayList<Book>(), bookList);
+
+        when(mockBook.isTitled("Hello")).thenReturn(true);
+
+        assertEquals("Thank you for returning the book.", bookLibrary.returnThisItem("Hello"));
     }
 }

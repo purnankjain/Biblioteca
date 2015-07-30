@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
 public class Book implements ListItem{
-    String name;
-    String author;
-    int publishYear;
+    private String name;
+    private String author;
+    private int publishYear;
     boolean isCheckedOut;
 
     public Book(String name, String author, int publishYear) {
