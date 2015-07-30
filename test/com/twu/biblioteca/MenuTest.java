@@ -16,6 +16,7 @@ public class MenuTest {
     QuitOption mockQuitOption;
     InvalidMenuOption mockInvalidMenuOption;
     ListBooksOption mockListBooksOption;
+    ArrayList<MenuOption> menuOptions;
 
     @Before
     public void initialise() {
@@ -24,7 +25,8 @@ public class MenuTest {
         mockInvalidMenuOption = mock(InvalidMenuOption.class);
         mockBookLibrary = mock(BookLibrary.class);
         mockListBooksOption = mock(ListBooksOption.class);
-        menu = new Menu(mockListBooksOption, mockQuitOption, mockInvalidMenuOption);
+        menuOptions = new ArrayList<MenuOption>();
+        menu = new Menu(menuOptions, mockInvalidMenuOption);
     }
 
     @Test
@@ -39,25 +41,40 @@ public class MenuTest {
     public void shouldReturnListBooksOption() {
         ArrayList<Book> books = new ArrayList<Book>();
         BookLibrary bookLibrary  = new BookLibrary(books);
-        ListBooksOption listBooksOption = new ListBooksOption(bookLibrary);
-        menu = new Menu(listBooksOption, mockQuitOption, mockInvalidMenuOption);
+        ListBooksOption listBooksOption = new ListBooksOption("List Books", bookLibrary);
+        ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
+        menuOptions.add(listBooksOption);
+        menuOptions.add(mockQuitOption);
+        menu = new Menu(menuOptions, mockInvalidMenuOption);
 
         assertEquals(ListBooksOption.class, menu.selectItem("List Books").getClass());
     }
 
     @Test
     public void shouldReturnQuit() {
-        QuitOption quitOption = new QuitOption();
-        menu = new Menu(mockListBooksOption, quitOption, mockInvalidMenuOption);
+        QuitOption quitOption = new QuitOption("Quit");
+        ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
+        menuOptions.add(mockListBooksOption);
+        menuOptions.add(quitOption);
+        menu = new Menu(menuOptions, mockInvalidMenuOption);
 
         assertEquals(QuitOption.class, menu.selectItem("Quit").getClass());
     }
 
     @Test
     public void shouldReturnInvalidMenuItem() {
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-        menu = new Menu(mockListBooksOption, mockQuitOption, invalidMenuOption);
+        menuOptions.add(mockListBooksOption);
+        menuOptions.add(mockQuitOption);
+        menu = new Menu(menuOptions, new InvalidMenuOption());
 
         assertEquals(InvalidMenuOption.class, menu.selectItem("Blah").getClass());
+    }
+
+    @Test
+    public void shouldReturnCheckOutItem() {
+        menuOptions.add(new CheckOutOption("CheckOut"));
+        menu = new Menu(menuOptions, new InvalidMenuOption());
+
+        assertEquals(CheckOutOption.class, menu.selectItem("CheckOut").getClass());
     }
 }

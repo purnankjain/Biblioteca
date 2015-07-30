@@ -1,14 +1,14 @@
 package com.twu.biblioteca;
 
 
+import java.util.ArrayList;
+
 public class Menu {
-    ListBooksOption listBooksOption;
-    QuitOption quitOption;
+    ArrayList<MenuOption> menuOptions;
     InvalidMenuOption invalidMenuOption;
 
-    public Menu(ListBooksOption listBooksOption, QuitOption quitOption, InvalidMenuOption invalidMenuOption) {
-        this.listBooksOption = listBooksOption;
-        this.quitOption = quitOption;
+    public Menu(ArrayList<MenuOption> menuOptions, InvalidMenuOption invalidMenuOption) {
+        this.menuOptions = menuOptions;
         this.invalidMenuOption = invalidMenuOption;
     }
 
@@ -20,10 +20,11 @@ public class Menu {
     }
 
     public MenuOption selectItem(String userInput) {
-        if (userInput.equals("List Books")) {
-            return listBooksOption;
-        } else if (userInput.equals("Quit")) {
-            return quitOption;
+        String name;
+        for(MenuOption option : menuOptions) {
+            name = option.toString();
+            if(name.equals(userInput))
+                return option;
         }
         return invalidMenuOption;
     }

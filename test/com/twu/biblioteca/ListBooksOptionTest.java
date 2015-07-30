@@ -13,7 +13,7 @@ public class ListBooksOptionTest {
     @Test
     public void shouldReturnBookDetails() {
         BookLibrary mockBookLibrary = mock(BookLibrary.class);
-        ListBooksOption listBooksOption = new ListBooksOption(mockBookLibrary);
+        ListBooksOption listBooksOption = new ListBooksOption("List Books", mockBookLibrary);
         ArrayList<String> allBookDetails = new ArrayList<String>();
         allBookDetails.add("Book1");
 

@@ -14,10 +14,13 @@ public class BibliotecaApp {
         Book book1 = new Book("The Alchemist", "Paulo Coelho", 1988);
         Book book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
         BookLibrary bookLibrary = new BookLibrary(bookList);
-        QuitOption quitOption = new QuitOption();
+        QuitOption quitOption = new QuitOption("Quit");
         InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
-        ListBooksOption listBooksOption = new ListBooksOption(bookLibrary);
-        Menu menu = new Menu(listBooksOption, quitOption, invalidMenuOption);
+        ListBooksOption listBooksOption = new ListBooksOption("List Books", bookLibrary);
+        ArrayList<MenuOption> menuOptions = new ArrayList<MenuOption>();
+        menuOptions.add(listBooksOption);
+        menuOptions.add(quitOption);
+        Menu menu = new Menu(menuOptions, invalidMenuOption);
         bookList.add(book1);
         bookList.add(book2);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);

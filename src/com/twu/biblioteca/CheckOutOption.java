@@ -1,15 +1,14 @@
 package com.twu.biblioteca;
 
-public class QuitOption implements MenuOption {
-    private String name;
+public class CheckOutOption implements MenuOption {
+    String name;
 
-    public QuitOption(String name) {
+    public CheckOutOption(String name) {
         this.name = name;
     }
 
     @Override
     public void execute(View view) {
-        System.exit(0);
     }
 
     @Override
