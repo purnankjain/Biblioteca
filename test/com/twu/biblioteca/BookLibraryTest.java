@@ -68,4 +68,16 @@ public class BookLibraryTest {
 
         assertEquals("Thank you for returning the book.", bookLibrary.returnThisItem("Hello"));
     }
+
+    @Test
+    public void shouldNotReturnABookWhichIsNotCheckedOut() {
+        bookList = new ArrayList<Book>();
+        Book mockBook = mock(Book.class);
+        bookList.add(mockBook);
+        bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
+
+        when(mockBook.isTitled("Hello")).thenReturn(true);
+
+        assertEquals("That is not a valid book to return.", bookLibrary.returnThisItem("Hello"));
+    }
 }
