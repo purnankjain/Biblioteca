@@ -16,6 +16,8 @@ public class View {
     }
 
     public void printBookNamesToConsole(ArrayList<String> bookList) {
+        bookList.add(String.format("%30s %30s %6s", "Title", "Author", "Year"));
+        bookList.add(String.format("%30s %30s %6s", "-----", "------", "----"));
         System.out.print(bookList);
     }
 

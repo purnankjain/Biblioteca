@@ -12,7 +12,7 @@ public class BibliotecaApplication {
 
     public void start() {
         view.greetUser();
-        MenuOption menuOption = null;
+        MenuOption menuOption;
         String input;
         while(true) {
             view.printToConsole(menu.renderMenu());

@@ -18,7 +18,7 @@ public class BookLibraryTest {
     public void initialiseBookList() {
         bookList = new ArrayList<Book>();
         book1 = new Book("The Alchemist", "Poelo Coehlo", 2005);
-        book2 = new Book("Harry Potter And the Half Blood Prince", "J.K Rowling", 2005);
+        book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
         bookLibrary = new BookLibrary(bookList, new ArrayList<Book>());
@@ -27,8 +27,8 @@ public class BookLibraryTest {
     @Test
     public void shouldReturnAllBooksInLibrary() {
         ArrayList<String> expectedBookList = new ArrayList<String>();
-        expectedBookList.add("The Alchemist, Poelo Coehlo, 2005");
-        expectedBookList.add("Harry Potter And the Half Blood Prince, J.K Rowling, 2005");
+        expectedBookList.add(String.format("%25s %25s %6s","The Alchemist", "Poelo Coehlo", "2005"));
+        expectedBookList.add(String.format("%25s %25s %6s","Harry Potter", "J.K Rowling", "2005"));
 
         assertEquals(expectedBookList, bookLibrary.getAllBooks());
     }

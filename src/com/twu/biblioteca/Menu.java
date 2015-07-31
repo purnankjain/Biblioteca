@@ -15,6 +15,8 @@ public class Menu {
     public String renderMenu() {
         String menu = "";
         menu += "=========================\n";
+        menu += "          Menu\n";
+        menu += "=========================\n";
         menu += "List Books\n";
         menu += "CheckOut Book\n";
         menu += "Return Book\n";

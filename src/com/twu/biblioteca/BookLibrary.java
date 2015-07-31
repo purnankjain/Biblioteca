@@ -22,8 +22,7 @@ public class BookLibrary {
     public String checkOutItem(String item) {
         for(Book book : availableBookList) {
             if(book.isTitled(item)) {
-                unAvailableBookList.add(book);
-                availableBookList.remove(book);
+                swapBook(book, availableBookList, unAvailableBookList);
                 return "Thank you! Enjoy the book";
             }
         }
@@ -33,11 +32,15 @@ public class BookLibrary {
     public String returnThisItem(String item) {
         for(Book book : unAvailableBookList) {
             if(book.isTitled(item)) {
-                availableBookList.add(book);
-                unAvailableBookList.remove(book);
+                swapBook(book, unAvailableBookList, availableBookList);
                 return "Thank you for returning the book.";
             }
         }
         return "That is not a valid book to return.";
+    }
+
+    private void swapBook(Book book, ArrayList<Book> fromThis, ArrayList<Book> toThis) {
+        fromThis.remove(book);
+        toThis.add(book);
     }
 }
