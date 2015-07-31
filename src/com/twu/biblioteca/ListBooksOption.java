@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 
-public class ListBooksOption implements MenuOption{
+public class ListBooksOption implements MenuOption {
     String name;
     BookLibrary bookLibrary;
 
@@ -18,8 +18,8 @@ public class ListBooksOption implements MenuOption{
     }
 
     @Override
-    public String toString() {
-        return name;
+    public boolean nameEquals(String toCheck) {
+        return name.equals(toCheck);
     }
 
     public String listBooks() {

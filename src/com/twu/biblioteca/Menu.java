@@ -27,10 +27,8 @@ public class Menu {
     }
 
     public MenuOption selectItem(String userInput) {
-        String name;
         for(MenuOption option : menuOptions) {
-            name = option.toString();
-            if(name.equals(userInput))
+            if(option.nameEquals(userInput))
                 return option;
         }
         return invalidMenuOption;

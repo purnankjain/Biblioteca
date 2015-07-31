@@ -14,8 +14,7 @@ public class QuitOption implements MenuOption {
     }
 
     @Override
-    public String toString() {
-        return name;
+    public boolean nameEquals(String toCheck) {
+        return name.equals(toCheck);
     }
-
 }

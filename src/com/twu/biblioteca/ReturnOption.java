@@ -11,13 +11,13 @@ public class ReturnOption implements MenuOption {
     }
 
     @Override
-    public String toString() {
-        return name;
-    }
-
-    @Override
     public void execute(View view) {
         view.printToConsole("Enter book to Return : \n");
         view.printToConsole(bookLibrary.returnThisItem(view.readUserInput()));
+    }
+
+    @Override
+    public boolean nameEquals(String toCheck) {
+        return name.equals(toCheck);
     }
 }
