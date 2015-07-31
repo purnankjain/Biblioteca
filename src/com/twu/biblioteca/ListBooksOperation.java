@@ -3,11 +3,11 @@ package com.twu.biblioteca;
 import java.util.ArrayList;
 
 
-public class ListBooksOption implements MenuOption {
+public class ListBooksOperation implements Operation {
     String name;
     BookLibrary bookLibrary;
 
-    public ListBooksOption(String name, BookLibrary bookLibrary) {
+    public ListBooksOperation(String name, BookLibrary bookLibrary) {
         this.name = name;
         this.bookLibrary = bookLibrary;
     }

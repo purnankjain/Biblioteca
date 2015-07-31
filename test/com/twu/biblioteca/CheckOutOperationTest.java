@@ -5,16 +5,16 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 
-public class CheckOutOptionTest {
+public class CheckOutOperationTest {
 
     @Test
     public void shouldCallCheckOutOfBookLibrary() {
         BookLibrary mockBookLibrary = mock(BookLibrary.class);
-        CheckOutOption checkOutOption = new CheckOutOption("CheckOut", mockBookLibrary);
+        CheckOutOperation checkOutOperation = new CheckOutOperation("CheckOut", mockBookLibrary);
         View mockView = mock(View.class);
 
         when(mockView.readUserInput()).thenReturn("book");
-        checkOutOption.execute(mockView);
+        checkOutOperation.execute(mockView);
 
         verify(mockBookLibrary).checkOutItem("book");
     }

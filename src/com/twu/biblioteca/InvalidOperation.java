@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 
-public class InvalidMenuOption implements MenuOption {
+public class InvalidOperation implements Operation {
 
     @Override
     public void execute(View view) {

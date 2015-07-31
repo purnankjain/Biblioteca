@@ -4,15 +4,16 @@ import java.util.ArrayList;
 
 
 public class Menu {
-    ArrayList<MenuOption> menuOptions;
-    InvalidMenuOption invalidMenuOption;
+    ArrayList<Operation> operations;
+    InvalidOperation invalidMenuOption;
 
-    public Menu(ArrayList<MenuOption> menuOptions, InvalidMenuOption invalidMenuOption) {
-        this.menuOptions = menuOptions;
+    public Menu(ArrayList<Operation> operations, InvalidOperation invalidMenuOption) {
+        this.operations = operations;
         this.invalidMenuOption = invalidMenuOption;
     }
 
-    public String renderMenu() {
+    @Override
+    public String toString() {
         String menu = "";
         menu += "=========================\n";
         menu += "          Menu\n";
@@ -26,8 +27,8 @@ public class Menu {
         return menu;
     }
 
-    public MenuOption selectItem(String userInput) {
-        for(MenuOption option : menuOptions) {
+    public Operation selectItem(String userInput) {
+        for(Operation option : operations) {
             if(option.nameEquals(userInput))
                 return option;
         }

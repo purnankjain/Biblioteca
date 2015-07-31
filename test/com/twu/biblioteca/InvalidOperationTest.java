@@ -5,12 +5,12 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 
-public class InvalidMenuOptionTest {
+public class InvalidOperationTest {
 
     @Test
     public void shouldCallViewPrintToConsole() {
         View mockView = mock(View.class);
-        InvalidMenuOption invalidMenuOption = new InvalidMenuOption();
+        InvalidOperation invalidMenuOption = new InvalidOperation();
 
         invalidMenuOption.execute(mockView);
 

@@ -1,19 +1,19 @@
 package com.twu.biblioteca;
 
 
-public class ReturnOption implements MenuOption {
-    private String name;
+public class CheckOutOperation implements Operation {
+    String name;
     private BookLibrary bookLibrary;
 
-    public ReturnOption(String name, BookLibrary bookLibrary) {
+    public CheckOutOperation(String name, BookLibrary bookLibrary) {
         this.name = name;
         this.bookLibrary = bookLibrary;
     }
 
     @Override
     public void execute(View view) {
-        view.printToConsole("Enter book to Return : \n");
-        view.printToConsole(bookLibrary.returnThisItem(view.readUserInput()));
+        view.printToConsole("Enter book to checkout : \n");
+        view.printToConsole(bookLibrary.checkOutItem(view.readUserInput()));
     }
 
     @Override

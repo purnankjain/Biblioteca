@@ -21,7 +21,7 @@ public class View {
         System.out.print(bookList);
     }
 
-    public void printToConsole(String toPrint) {
+    public void printToConsole(Object toPrint) {
         System.out.println(toPrint);
     }
 

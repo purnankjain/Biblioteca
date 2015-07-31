@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 
-public class QuitOption implements MenuOption {
+public class QuitOperation implements Operation {
     private String name;
 
-    public QuitOption(String name) {
+    public QuitOperation(String name) {
         this.name = name;
     }
 

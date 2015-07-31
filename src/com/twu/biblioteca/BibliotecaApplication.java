@@ -12,13 +12,13 @@ public class BibliotecaApplication {
 
     public void start() {
         view.greetUser();
-        MenuOption menuOption;
+        Operation operation;
         String input;
         while(true) {
-            view.printToConsole(menu.renderMenu());
+            view.printToConsole(menu);
             input = view.readUserInput();
-            menuOption = menu.selectItem(input);
-            menuOption.execute(view);
+            operation = menu.selectItem(input);
+            operation.execute(view);
         }
     }
 }
