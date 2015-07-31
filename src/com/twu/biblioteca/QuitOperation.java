@@ -9,8 +9,8 @@ public class QuitOperation implements Operation {
     }
 
     @Override
-    public void execute(View view) {
-        System.exit(0);
+    public boolean execute(View view) {
+        return false;
     }
 
     @Override

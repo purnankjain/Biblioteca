@@ -13,8 +13,9 @@ public class ListBooksOperation implements Operation {
     }
 
     @Override
-    public void execute(View view) {
+    public boolean execute(View view) {
         view.printToConsole(listBooks());
+        return true;
     }
 
     @Override

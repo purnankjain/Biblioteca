@@ -11,9 +11,10 @@ public class CheckOutOperation implements Operation {
     }
 
     @Override
-    public void execute(View view) {
+    public boolean execute(View view) {
         view.printToConsole("Enter book to checkout : \n");
         view.printToConsole(bookLibrary.checkOutItem(view.readUserInput()));
+        return true;
     }
 
     @Override

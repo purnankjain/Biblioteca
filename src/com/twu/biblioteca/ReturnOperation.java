@@ -11,9 +11,10 @@ public class ReturnOperation implements Operation {
     }
 
     @Override
-    public void execute(View view) {
+    public boolean execute(View view) {
         view.printToConsole("Enter book to Return : \n");
         view.printToConsole(bookLibrary.returnThisItem(view.readUserInput()));
+        return true;
     }
 
     @Override

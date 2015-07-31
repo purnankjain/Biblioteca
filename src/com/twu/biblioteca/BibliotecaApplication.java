@@ -14,11 +14,12 @@ public class BibliotecaApplication {
         view.greetUser();
         Operation operation;
         String input;
-        while(true) {
+        boolean runLoop = true;
+        while(runLoop) {
             view.printToConsole(menu);
             input = view.readUserInput();
             operation = menu.selectItem(input);
-            operation.execute(view);
+            runLoop = operation.execute(view);
         }
     }
 }
