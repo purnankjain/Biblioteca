@@ -64,10 +64,10 @@ public class MenuTest {
 
     @Test
     public void shouldReturnCheckOutOption() {
-        operations.add(new CheckOutMovieOperation("CheckOut", mockBookLibrary));
+        operations.add(new CheckOutBookOperation("CheckOut", mockBookLibrary));
         menu = new Menu(operations, new InvalidOperation());
 
-        assertEquals(CheckOutMovieOperation.class, menu.selectItem("CheckOut").getClass());
+        assertEquals(CheckOutBookOperation.class, menu.selectItem("CheckOut").getClass());
     }
 
     @Test

@@ -1,5 +1,7 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 public class ListMoviesOperation implements Operation {
     private String name;
     private MovieLibrary movieLibrary;
@@ -11,7 +13,18 @@ public class ListMoviesOperation implements Operation {
 
     @Override
     public boolean execute(View view) {
-        return false;
+        view.printToConsole((listMovies()));
+        return true;
+    }
+
+    public String listMovies() {
+        ArrayList<String> arrayList = movieLibrary.listAllAvailableMovies();
+        String formattedOutput = "";
+        for(String eachMovieDetail : arrayList) {
+            formattedOutput += eachMovieDetail + "\n";
+        }
+        return formattedOutput;
+
     }
 
     @Override

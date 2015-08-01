@@ -23,7 +23,7 @@ public class BibliotecaApp {
         ListBooksOperation listBooksOperation = new ListBooksOperation("List Books", bookLibrary);
         ArrayList<Operation> operations = new ArrayList<Operation>();
         operations.add(listBooksOperation);
-        operations.add(new CheckOutMovieOperation("CheckOut Book", bookLibrary));
+        operations.add(new CheckOutBookOperation("CheckOut Book", bookLibrary));
         operations.add(new ReturnBookOperation("Return Book", bookLibrary));
         operations.add(new ListMoviesOperation("List Movies", movieLibrary));
         operations.add(quitOperation);

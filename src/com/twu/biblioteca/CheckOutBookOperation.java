@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
 
-public class CheckOutMovieOperation implements Operation {
+public class CheckOutBookOperation implements Operation {
     String name;
     private BookLibrary bookLibrary;
 
-    public CheckOutMovieOperation(String name, BookLibrary bookLibrary) {
+    public CheckOutBookOperation(String name, BookLibrary bookLibrary) {
         this.name = name;
         this.bookLibrary = bookLibrary;
     }
