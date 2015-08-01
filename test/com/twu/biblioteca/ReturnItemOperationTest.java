@@ -7,17 +7,17 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 
-public class ReturnBookOperationTest {
+public class ReturnItemOperationTest {
 
     @Test
     public void shouldReturnABook() {
-        BookLibrary mockBookLibrary = mock(BookLibrary.class);
-        ReturnBookOperation returnBookOperation = new ReturnBookOperation("Return Book", mockBookLibrary);
+        Library mockLibrary = mock(Library.class);
+        ReturnItemOperation returnItemOperation = new ReturnItemOperation("Return Book", mockLibrary);
         View mockView = mock(View.class);
 
         when(mockView.readUserInput()).thenReturn("book");
-        returnBookOperation.execute(mockView);
+        returnItemOperation.execute(mockView);
 
-        verify(mockBookLibrary).returnThisItem("book");
+        verify(mockLibrary).returnThisItem("book");
     }
 }

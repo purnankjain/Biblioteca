@@ -12,10 +12,10 @@ public class MenuTest {
 
     Menu menu;
     View mockView;
-    BookLibrary mockBookLibrary;
+    Library mockLibrary;
     QuitOperation mockQuitOperation;
     InvalidOperation mockInvalidMenuOption;
-    ListBooksOperation mockListBooksOperation;
+    ListOperation mockListOperation;
     ArrayList<Operation> operations;
 
     @Before
@@ -23,30 +23,30 @@ public class MenuTest {
         mockView = mock(View.class);
         mockQuitOperation = mock(QuitOperation.class);
         mockInvalidMenuOption = mock(InvalidOperation.class);
-        mockBookLibrary = mock(BookLibrary.class);
-        mockListBooksOperation = mock(ListBooksOperation.class);
+        mockLibrary = mock(Library.class);
+        mockListOperation = mock(ListOperation.class);
         operations = new ArrayList<Operation>();
         menu = new Menu(operations, mockInvalidMenuOption);
     }
 
     @Test
     public void shouldReturnListBooksOption() {
-        ArrayList<Book> books = new ArrayList<Book>();
-        BookLibrary bookLibrary  = new BookLibrary(books, new ArrayList<Book>());
-        ListBooksOperation listBooksOperation = new ListBooksOperation("List Books", bookLibrary);
+        ArrayList<Item> books = new ArrayList<Item>();
+        Library library = new Library("Item", books, new ArrayList<Item>());
+        ListOperation listOperation = new ListOperation("List Books", library);
         ArrayList<Operation> operations = new ArrayList<Operation>();
-        operations.add(listBooksOperation);
+        operations.add(listOperation);
         operations.add(mockQuitOperation);
         menu = new Menu(operations, mockInvalidMenuOption);
 
-        assertEquals(ListBooksOperation.class, menu.selectItem("List Books").getClass());
+        assertEquals(ListOperation.class, menu.selectItem("List Books").getClass());
     }
 
     @Test
     public void shouldReturnQuitOption() {
         QuitOperation quitOperation = new QuitOperation("Quit");
         ArrayList<Operation> operations = new ArrayList<Operation>();
-        operations.add(mockListBooksOperation);
+        operations.add(mockListOperation);
         operations.add(quitOperation);
         menu = new Menu(operations, mockInvalidMenuOption);
 
@@ -55,7 +55,7 @@ public class MenuTest {
 
     @Test
     public void shouldReturnInvalidMenuOption() {
-        operations.add(mockListBooksOperation);
+        operations.add(mockListOperation);
         operations.add(mockQuitOperation);
         menu = new Menu(operations, new InvalidOperation());
 
@@ -64,17 +64,17 @@ public class MenuTest {
 
     @Test
     public void shouldReturnCheckOutOption() {
-        operations.add(new CheckOutBookOperation("CheckOut", mockBookLibrary));
+        operations.add(new CheckOutOperation("CheckOut", mockLibrary));
         menu = new Menu(operations, new InvalidOperation());
 
-        assertEquals(CheckOutBookOperation.class, menu.selectItem("CheckOut").getClass());
+        assertEquals(CheckOutOperation.class, menu.selectItem("CheckOut").getClass());
     }
 
     @Test
     public void shouldReturnReturnOption() {
-        operations.add(new ReturnBookOperation("Return", mockBookLibrary));
+        operations.add(new ReturnItemOperation("Return", mockLibrary));
         menu = new Menu(operations, new InvalidOperation());
 
-        assertEquals(ReturnBookOperation.class, menu.selectItem("Return").getClass());
+        assertEquals(ReturnItemOperation.class, menu.selectItem("Return").getClass());
     }
 }

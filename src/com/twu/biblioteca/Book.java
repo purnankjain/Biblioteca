@@ -1,7 +1,7 @@
 package com.twu.biblioteca;
 
 
-public class Book {
+public class Book implements Item{
     private String name;
     private String author;
     private int publishYear;
@@ -12,6 +12,7 @@ public class Book {
         this.publishYear = publishYear;
     }
 
+    @Override
     public boolean isTitled(String nameToCheck) {
         return (name.equals(nameToCheck));
     }
