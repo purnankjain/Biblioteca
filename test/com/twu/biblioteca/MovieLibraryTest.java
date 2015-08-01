@@ -30,6 +30,12 @@ public class MovieLibraryTest {
     @Test
     public void shouldCheckoutAnAvailableMovie() {
 
-        assertEquals("Thank you! Enjoy the movie.", movieLibrary.ckecoutItem("Harry"));
+        assertEquals("Thank you! Enjoy the movie.", movieLibrary.checkOutItem("Harry"));
+    }
+
+    @Test
+    public void shouldConfirmAnUnsuccessfulCheckout() {
+
+        assertEquals("That movie is not available.", movieLibrary.checkOutItem("Dave"));
     }
 }
