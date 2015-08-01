@@ -25,6 +25,6 @@ public class CheckOutMovieOperation implements Operation{
 
     @Override
     public String getName() {
-        return null;
+        return name;
     }
 }

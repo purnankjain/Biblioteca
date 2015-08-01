@@ -33,4 +33,9 @@ public class CheckOutMovieOperationTest {
 
         assertEquals(true, checkOutMovieOperation.nameEquals("Name"));
     }
+
+    @Test
+    public void shouldGetItsName() {
+        assertEquals("Name", checkOutMovieOperation.getName());
+    }
 }
