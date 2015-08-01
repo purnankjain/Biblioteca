@@ -19,4 +19,19 @@ public class MovieLibrary {
         }
         return temp;
     }
+
+    public String ckecoutItem(String item) {
+        for(Movie movie : availableMovies) {
+            if(movie.isTitled(item)) {
+                swapMovie(movie, availableMovies, unAvailableMovies);
+                return "Thank you! Enjoy the movie.";
+            }
+        }
+        return null;
+    }
+
+    private void swapMovie(Movie movie, ArrayList<Movie> fromList, ArrayList<Movie> toList) {
+        fromList.remove(movie);
+        toList.add(movie);
+    }
 }

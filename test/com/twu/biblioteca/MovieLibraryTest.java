@@ -26,4 +26,10 @@ public class MovieLibraryTest {
 
         assertEquals(expectedMovies, movieLibrary.listAllAvailableMovies());
     }
+
+    @Test
+    public void shouldCheckoutAnAvailableMovie() {
+
+        assertEquals("Thank you! Enjoy the movie.", movieLibrary.ckecoutItem("Harry"));
+    }
 }

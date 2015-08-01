@@ -13,7 +13,7 @@ public class ListMoviesOperation implements Operation {
 
     @Override
     public boolean execute(View view) {
-        view.printToConsole((listMovies()));
+        view.printMovieToConsole(listMovies());
         return true;
     }
 
