@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import java.io.BufferedReader;
-import java.util.ArrayList;
 
 
 public class View {
@@ -15,10 +14,16 @@ public class View {
         System.out.println("--WELCOME TO BIBLIOTECA--");
     }
 
-    public void printBookNamesToConsole(ArrayList<String> bookList) {
-        bookList.add(String.format("%30s %30s %6s", "Title", "Author", "Year"));
-        bookList.add(String.format("%30s %30s %6s", "-----", "------", "----"));
+    public void printBookNamesToConsole(String bookList) {
+        System.out.println(String.format("%25s %25s %6s", "Title", "Author", "Year"));
+        System.out.println(String.format("%25s %25s %6s", "-----", "------", "----"));
         System.out.print(bookList);
+    }
+
+    public void printMovieToConsole(String movieList) {
+        System.out.println(String.format("%25s %6s %25s %10s", "Title", "Year", "Director", "Rating"));
+        System.out.println(String.format("%25s %6s %25s %10s", "-----", "----", "--------", "------"));
+        System.out.println(movieList);
     }
 
     public void printToConsole(Object toPrint) {

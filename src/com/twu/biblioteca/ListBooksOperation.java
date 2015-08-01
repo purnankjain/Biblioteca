@@ -14,7 +14,7 @@ public class ListBooksOperation implements Operation {
 
     @Override
     public boolean execute(View view) {
-        view.printToConsole(listBooks());
+        view.printBookNamesToConsole(listBooks());
         return true;
     }
 
