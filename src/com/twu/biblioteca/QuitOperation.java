@@ -17,4 +17,8 @@ public class QuitOperation implements Operation {
     public boolean nameEquals(String toCheck) {
         return name.equals(toCheck);
     }
+
+    public String getName() {
+        return name;
+    }
 }

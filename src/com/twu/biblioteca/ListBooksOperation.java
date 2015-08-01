@@ -31,4 +31,8 @@ public class ListBooksOperation implements Operation {
         }
         return formattedOutput;
     }
+
+    public String getName() {
+        return name;
+    }
 }

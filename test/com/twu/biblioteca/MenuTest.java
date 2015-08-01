@@ -64,17 +64,17 @@ public class MenuTest {
 
     @Test
     public void shouldReturnCheckOutOption() {
-        operations.add(new CheckOutOperation("CheckOut", mockBookLibrary));
+        operations.add(new CheckOutMovieOperation("CheckOut", mockBookLibrary));
         menu = new Menu(operations, new InvalidOperation());
 
-        assertEquals(CheckOutOperation.class, menu.selectItem("CheckOut").getClass());
+        assertEquals(CheckOutMovieOperation.class, menu.selectItem("CheckOut").getClass());
     }
 
     @Test
     public void shouldReturnReturnOption() {
-        operations.add(new ReturnOperation("Return", mockBookLibrary));
+        operations.add(new ReturnBookOperation("Return", mockBookLibrary));
         menu = new Menu(operations, new InvalidOperation());
 
-        assertEquals(ReturnOperation.class, menu.selectItem("Return").getClass());
+        assertEquals(ReturnBookOperation.class, menu.selectItem("Return").getClass());
     }
 }

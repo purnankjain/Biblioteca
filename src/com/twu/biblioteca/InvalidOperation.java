@@ -13,4 +13,9 @@ public class InvalidOperation implements Operation {
     public boolean nameEquals(String toCheck) {
         return false;
     }
+
+    @Override
+    public String getName() {
+        return null;
+    }
 }

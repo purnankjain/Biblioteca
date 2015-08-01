@@ -1,11 +1,11 @@
 package com.twu.biblioteca;
 
 
-public class ReturnOperation implements Operation {
+public class ReturnBookOperation implements Operation {
     private String name;
     private BookLibrary bookLibrary;
 
-    public ReturnOperation(String name, BookLibrary bookLibrary) {
+    public ReturnBookOperation(String name, BookLibrary bookLibrary) {
         this.name = name;
         this.bookLibrary = bookLibrary;
     }
@@ -20,5 +20,9 @@ public class ReturnOperation implements Operation {
     @Override
     public boolean nameEquals(String toCheck) {
         return name.equals(toCheck);
+    }
+
+    public String getName() {
+        return name;
     }
 }

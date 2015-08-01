@@ -20,4 +20,14 @@ public class ListBooksOperationTest {
 
         assertEquals("Book1\n", listBooksOperation.listBooks());
     }
+
+    @Test
+    public void shouldReturnOperationName() {
+        BookLibrary mockBookLibrary = mock(BookLibrary.class);
+        ListBooksOperation listBooksOperation = new ListBooksOperation("List Books", mockBookLibrary);
+        ArrayList<String> allBookDetails = new ArrayList<String>();
+        allBookDetails.add("Book1");
+
+        assertEquals("List Books", listBooksOperation.getName());
+    }
 }

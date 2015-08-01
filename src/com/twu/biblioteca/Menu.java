@@ -18,10 +18,10 @@ public class Menu {
         menu += "=========================\n";
         menu += "          Menu\n";
         menu += "=========================\n";
-        menu += "List Books\n";
-        menu += "CheckOut Book\n";
-        menu += "Return Book\n";
-        menu += "Quit\n";
+        for (Operation operation : operations) {
+            menu += operation.getName();
+            menu += "\n";
+        }
         menu += "=========================\n\n";
         menu += "Enter Choice : ";
         return menu;
