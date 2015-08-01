@@ -16,4 +16,9 @@ public class Movie {
     public boolean isTitled(String toCheck) {
         return title.equals(toCheck);
     }
+
+    @Override
+    public String toString() {
+        return String.format("%25s %6d %25s %10s",title, year, director, rating);
+    }
 }
