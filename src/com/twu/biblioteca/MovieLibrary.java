@@ -12,7 +12,11 @@ public class MovieLibrary {
         this.unAvailableMovies = unAvailableMovies;
     }
 
-    public ArrayList<Movie> listAllAvailableMovies() {
-        return availableMovies;
+    public ArrayList<String> listAllAvailableMovies() {
+        ArrayList<String> temp = new ArrayList<>();
+        for (Movie movie : availableMovies) {
+            temp.add(movie.toString());
+        }
+        return temp;
     }
 }
