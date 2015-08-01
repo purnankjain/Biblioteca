@@ -3,9 +3,11 @@ package com.twu.biblioteca;
 
 public class CheckOutMovieOperation implements Operation{
 
+    private String name;
     private MovieLibrary movieLibrary;
 
-    public CheckOutMovieOperation(MovieLibrary movieLibrary) {
+    public CheckOutMovieOperation(String name, MovieLibrary movieLibrary) {
+        this.name = name;
         this.movieLibrary = movieLibrary;
     }
 
@@ -18,7 +20,7 @@ public class CheckOutMovieOperation implements Operation{
 
     @Override
     public boolean nameEquals(String toCheck) {
-        return false;
+        return name.equals(toCheck);
     }
 
     @Override

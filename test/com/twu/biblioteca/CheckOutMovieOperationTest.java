@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.*;
 
 
@@ -15,7 +16,7 @@ public class CheckOutMovieOperationTest {
     @Before
     public void initialise() {
         mockView = mock(View.class);
-        checkOutMovieOperation = new CheckOutMovieOperation(mockMovieLibrary);
+        checkOutMovieOperation = new CheckOutMovieOperation("Name", mockMovieLibrary);
     }
 
     @Test
@@ -25,5 +26,11 @@ public class CheckOutMovieOperationTest {
         checkOutMovieOperation.execute(mockView);
 
         verify(mockMovieLibrary).checkOutItem("Harry");
+    }
+
+    @Test
+    public void shouldKnowItsName() {
+
+        assertEquals(true, checkOutMovieOperation.nameEquals("Name"));
     }
 }

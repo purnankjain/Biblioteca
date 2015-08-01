@@ -26,6 +26,7 @@ public class BibliotecaApp {
         operations.add(new CheckOutBookOperation("CheckOut Book", bookLibrary));
         operations.add(new ReturnBookOperation("Return Book", bookLibrary));
         operations.add(new ListMoviesOperation("List Movies", movieLibrary));
+        operations.add(new CheckOutMovieOperation("CheckOut Movie", movieLibrary));
         operations.add(quitOperation);
         Menu menu = new Menu(operations, invalidMenuOption);
         bookList.add(book1);
