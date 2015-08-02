@@ -1,12 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.operations;
 
+
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.View;
 
 public class ReturnItemOperation implements Operation {
-    private String name;
     private Library library;
 
-    public ReturnItemOperation(String name, Library library) {
-        this.name = name;
+    public ReturnItemOperation(Library library) {
         this.library = library;
     }
 
@@ -15,14 +16,5 @@ public class ReturnItemOperation implements Operation {
         view.printToConsole("Enter item to Return : \n");
         view.printToConsole(library.returnThisItem(view.readUserInput()));
         return true;
-    }
-
-    @Override
-    public boolean nameEquals(String toCheck) {
-        return name.equals(toCheck);
-    }
-
-    public String getName() {
-        return name;
     }
 }

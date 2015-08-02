@@ -1,4 +1,5 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.model;
+
 
 public class Movie implements Item{
     private String title;

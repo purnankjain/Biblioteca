@@ -1,4 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.main;
+
+import com.twu.biblioteca.*;
+import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Item;
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.Movie;
+import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.view.View;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -11,35 +19,18 @@ public class BibliotecaApp {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         View view = new View(bufferedReader);
-
-
         ArrayList<Item> bookList = new ArrayList<Item>();
         Book book1 = new Book("The Alchemist", "Paulo Coelho", 1988);
         Book book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
         Library bookLibrary = new Library("Book", bookList, new ArrayList<Item>());
-
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
         Library movieLibrary = new Library("Movie", movieList, new ArrayList<Item>());
-
-
-        QuitOperation quitOperation = new QuitOperation("Quit");
-        InvalidOperation invalidMenuOption = new InvalidOperation();
-        ListOperation listOperation = new ListOperation("List Books", bookLibrary);
-        ArrayList<Operation> operations = new ArrayList<Operation>();
-        operations.add(listOperation);
-        operations.add(new CheckOutOperation("CheckOut Book", bookLibrary));
-        operations.add(new ReturnItemOperation("Return Book", bookLibrary));
-
-        operations.add(new ListOperation("List Movies", movieLibrary));
-        operations.add(new CheckOutOperation("CheckOut Movie", movieLibrary));
-
-        operations.add(quitOperation);
-        Menu menu = new Menu(operations, invalidMenuOption);
-        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, menu);
+        Parser parser = new Parser(bookLibrary, movieLibrary);
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser);
         bibliotecaApplication.start();
     }
 }

@@ -1,14 +1,15 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.operations;
+
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.View;
 
 import java.util.ArrayList;
 
 
 public class ListOperation implements Operation {
-    String name;
     Library library;
 
-    public ListOperation(String name, Library library) {
-        this.name = name;
+    public ListOperation(Library library) {
         this.library = library;
     }
 
@@ -17,12 +18,6 @@ public class ListOperation implements Operation {
         view.printToConsole(listItems());
         return true;
     }
-
-    @Override
-    public boolean nameEquals(String toCheck) {
-        return name.equals(toCheck);
-    }
-
     public String listItems() {
         ArrayList<String> arrayList = library.getAllItems();
         String formattedOutput = "";
@@ -30,9 +25,5 @@ public class ListOperation implements Operation {
             formattedOutput += eachItemDetail + "\n";
         }
         return formattedOutput;
-    }
-
-    public String getName() {
-        return name;
     }
 }

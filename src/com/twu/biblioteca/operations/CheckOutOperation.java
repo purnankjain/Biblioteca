@@ -1,12 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.operations;
 
+
+import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.view.View;
 
 public class CheckOutOperation implements Operation {
-    String name;
     private Library library;
 
-    public CheckOutOperation(String name, Library library) {
-        this.name = name;
+    public CheckOutOperation(Library library) {
         this.library = library;
     }
 
@@ -15,14 +16,5 @@ public class CheckOutOperation implements Operation {
         view.printToConsole("Enter name to checkout : \n");
         view.printToConsole(library.checkOutItem(view.readUserInput()));
         return true;
-    }
-
-    @Override
-    public boolean nameEquals(String toCheck) {
-        return name.equals(toCheck);
-    }
-
-    public String getName() {
-        return name;
     }
 }

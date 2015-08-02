@@ -1,5 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.operations;
 
+
+import com.twu.biblioteca.view.View;
 
 public class InvalidOperation implements Operation {
 
@@ -7,15 +9,5 @@ public class InvalidOperation implements Operation {
     public boolean execute(View view) {
         view.printToConsole("Select a valid option!");
         return true;
-    }
-
-    @Override
-    public boolean nameEquals(String toCheck) {
-        return false;
-    }
-
-    @Override
-    public String getName() {
-        return null;
     }
 }
