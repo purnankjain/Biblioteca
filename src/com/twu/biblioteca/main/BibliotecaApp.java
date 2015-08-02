@@ -3,7 +3,7 @@ package com.twu.biblioteca.main;
 import com.twu.biblioteca.*;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Item;
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.parser.Parser;
 import com.twu.biblioteca.view.View;
@@ -24,12 +24,12 @@ public class BibliotecaApp {
         Book book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        Library bookLibrary = new Library("Book", bookList, new ArrayList<Item>());
+        LibrarySection bookLibrarySection = new LibrarySection("Book", bookList, new ArrayList<Item>());
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
-        Library movieLibrary = new Library("Movie", movieList, new ArrayList<Item>());
-        Parser parser = new Parser(bookLibrary, movieLibrary);
+        LibrarySection movieLibrarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
+        Parser parser = new Parser(bookLibrarySection, movieLibrarySection);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser);
         bibliotecaApplication.start();
     }

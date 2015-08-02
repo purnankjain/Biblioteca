@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.operations.*;
 import com.twu.biblioteca.parser.Parser;
 import org.junit.Before;
@@ -13,14 +13,14 @@ import static org.mockito.Mockito.mock;
 public class ParserTest {
 
     Parser parser;
-    Library bookLibrary;
-    Library movieLibrary;
+    LibrarySection bookLibrarySection;
+    LibrarySection movieLibrarySection;
 
     @Before
     public void initialise() {
-        bookLibrary = mock(Library.class);
-        movieLibrary = mock(Library.class);
-        parser = new Parser(bookLibrary, movieLibrary);
+        bookLibrarySection = mock(LibrarySection.class);
+        movieLibrarySection = mock(LibrarySection.class);
+        parser = new Parser(bookLibrarySection, movieLibrarySection);
     }
 
     @Test

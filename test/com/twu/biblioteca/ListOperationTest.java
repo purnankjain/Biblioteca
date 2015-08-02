@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.operations.ListOperation;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,14 +12,14 @@ import static org.mockito.Mockito.*;
 
 public class ListOperationTest {
 
-    Library mockLibrary;
+    LibrarySection mockLibrarySection;
     ListOperation listOperation;
     ArrayList<String> allBookDetails;
 
     @Before
     public void initialise() {
-        mockLibrary = mock(Library.class);
-        listOperation = new ListOperation(mockLibrary);
+        mockLibrarySection = mock(LibrarySection.class);
+        listOperation = new ListOperation(mockLibrarySection);
         allBookDetails = new ArrayList<String>();
         allBookDetails.add("Book1");
 
@@ -28,7 +28,7 @@ public class ListOperationTest {
     @Test
     public void shouldReturnBookDetails() {
 
-        when(mockLibrary.getAllItems()).thenReturn(allBookDetails);
+        when(mockLibrarySection.getAllItems()).thenReturn(allBookDetails);
 
         assertEquals("Book1\n", listOperation.listItems());
     }

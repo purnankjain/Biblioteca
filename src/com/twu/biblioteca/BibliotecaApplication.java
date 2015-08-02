@@ -19,11 +19,11 @@ public class BibliotecaApplication {
         Operation operation;
         String input;
         boolean runLoop = true;
-        while(runLoop) {
+        while(true) {
             view.printMenu();
             input = view.readUserInput();
             operation = parser.selectOperation(input);
-            runLoop = operation.execute(view);
+            operation.execute(view);
         }
     }
 }

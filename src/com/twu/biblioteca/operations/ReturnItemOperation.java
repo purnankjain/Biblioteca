@@ -1,20 +1,19 @@
 package com.twu.biblioteca.operations;
 
 
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.view.View;
 
 public class ReturnItemOperation implements Operation {
-    private Library library;
+    private LibrarySection librarySection;
 
-    public ReturnItemOperation(Library library) {
-        this.library = library;
+    public ReturnItemOperation(LibrarySection librarySection) {
+        this.librarySection = librarySection;
     }
 
     @Override
-    public boolean execute(View view) {
+    public void execute(View view) {
         view.printToConsole("Enter item to Return : \n");
-        view.printToConsole(library.returnThisItem(view.readUserInput()));
-        return true;
+        view.printToConsole(librarySection.returnThisItem(view.readUserInput()));
     }
 }

@@ -1,20 +1,19 @@
 package com.twu.biblioteca.operations;
 
 
-import com.twu.biblioteca.model.Library;
+import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.view.View;
 
 public class CheckOutOperation implements Operation {
-    private Library library;
+    private LibrarySection librarySection;
 
-    public CheckOutOperation(Library library) {
-        this.library = library;
+    public CheckOutOperation(LibrarySection librarySection) {
+        this.librarySection = librarySection;
     }
 
     @Override
-    public boolean execute(View view) {
+    public void execute(View view) {
         view.printToConsole("Enter name to checkout : \n");
-        view.printToConsole(library.checkOutItem(view.readUserInput()));
-        return true;
+        view.printToConsole(librarySection.checkOutItem(view.readUserInput()));
     }
 }
