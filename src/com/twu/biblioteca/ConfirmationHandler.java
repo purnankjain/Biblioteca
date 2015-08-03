@@ -23,7 +23,14 @@ public class ConfirmationHandler {
         if(success) {
             confirmSuccessfulReturn(item);
         }
+        else {
+            confirmUnsuccessfulReturn(item);
+        }
         return success;
+    }
+
+    private void confirmUnsuccessfulReturn(String item) {
+        view.printToConsole("That is not a valid " + item + " to return.");
     }
 
     private void confirmSuccessfulReturn(String item) {

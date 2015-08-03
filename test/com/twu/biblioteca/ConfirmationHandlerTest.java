@@ -35,4 +35,10 @@ public class ConfirmationHandlerTest {
 
         assertEquals(true, confirmationHandler.validateReturn("Book", true));
     }
+
+    @Test
+    public void shouldConfirmUnSuccessfulReturn() {
+
+        assertEquals(false, confirmationHandler.validateReturn("Book", false));
+    }
 }
