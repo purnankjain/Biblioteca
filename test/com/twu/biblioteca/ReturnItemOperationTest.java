@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.operations.ReturnItemOperation;
 import com.twu.biblioteca.view.View;
 import org.junit.Test;

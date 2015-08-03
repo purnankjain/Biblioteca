@@ -1,7 +1,7 @@
 package com.twu.biblioteca.operations;
 
 
-import com.twu.biblioteca.model.LibrarySection;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.view.View;
 
 public class CheckOutOperation implements Operation {

@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.operations.ListOperation;
 import org.junit.Before;
 import org.junit.Test;

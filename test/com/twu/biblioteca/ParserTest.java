@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.operations.*;
 import com.twu.biblioteca.parser.Parser;
 import org.junit.Before;

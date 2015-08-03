@@ -1,6 +1,6 @@
 package com.twu.biblioteca.operations;
 
-import com.twu.biblioteca.model.LibrarySection;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.view.View;
 
 import java.util.ArrayList;

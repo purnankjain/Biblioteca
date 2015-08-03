@@ -2,7 +2,6 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Item;
-import com.twu.biblioteca.model.LibrarySection;
 import com.twu.biblioteca.model.Movie;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,7 +1,7 @@
 package com.twu.biblioteca.parser;
 
 
-import com.twu.biblioteca.model.LibrarySection;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.operations.*;
 
 public class Parser {

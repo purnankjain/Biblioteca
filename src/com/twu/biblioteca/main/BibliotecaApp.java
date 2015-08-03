@@ -3,7 +3,7 @@ package com.twu.biblioteca.main;
 import com.twu.biblioteca.*;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Item;
-import com.twu.biblioteca.model.LibrarySection;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.parser.Parser;
 import com.twu.biblioteca.view.View;
