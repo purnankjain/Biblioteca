@@ -29,4 +29,10 @@ public class ConfirmationHandlerTest {
 
         assertEquals(false, confirmationHandler.validateCheckOut("Book", false));
     }
+
+    @Test
+    public void shouldConfirmSuccessfulReturn() {
+
+        assertEquals(true, confirmationHandler.validateReturn("Book", true));
+    }
 }

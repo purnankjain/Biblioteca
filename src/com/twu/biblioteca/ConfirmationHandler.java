@@ -19,6 +19,17 @@ public class ConfirmationHandler {
         return success;
     }
 
+    public boolean validateReturn(String item, boolean success) {
+        if(success) {
+            confirmSuccessfulReturn(item);
+        }
+        return success;
+    }
+
+    private void confirmSuccessfulReturn(String item) {
+        view.printToConsole("Thank you for returning the " + item + ".");
+    }
+
     private void confirmUnsuccessfulCheckOut(String item) {
         view.printToConsole("That " + item + " is not available.");
     }
