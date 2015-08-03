@@ -23,18 +23,21 @@ public class Book implements Item{
     }
 
     @Override
-    public boolean equals(Object otherObject) {
-        if (this == otherObject) return true;
-        if (otherObject == null || getClass() != otherObject.getClass()) return false;
-        if (!super.equals(otherObject)) return false;
-        Book otherBook = (Book) otherObject;
-        if (publishYear != otherBook.publishYear) return false;
-        return !(author != null ? !author.equals(otherBook.author) : otherBook.author != null);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Book book = (Book) o;
+
+        if (publishYear != book.publishYear) return false;
+        if (name != null ? !name.equals(book.name) : book.name != null) return false;
+        return !(author != null ? !author.equals(book.author) : book.author != null);
+
     }
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
+        int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (author != null ? author.hashCode() : 0);
         result = 31 * result + publishYear;
         return result;
