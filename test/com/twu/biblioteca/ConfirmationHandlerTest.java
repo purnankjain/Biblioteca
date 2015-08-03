@@ -23,4 +23,10 @@ public class ConfirmationHandlerTest {
 
         assertEquals(true, confirmationHandler.validateCheckOut("Book", true));
     }
+
+    @Test
+    public void shouldConfirmUnSuccessfulCheckOut() {
+
+        assertEquals(false, confirmationHandler.validateCheckOut("Book", false));
+    }
 }

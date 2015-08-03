@@ -14,9 +14,13 @@ public class ConfirmationHandler {
             confirmSuccessfulCheckOutToUser(item);
         }
         else {
-
+            confirmUnsuccessfulCheckOut(item);
         }
         return success;
+    }
+
+    private void confirmUnsuccessfulCheckOut(String item) {
+        view.printToConsole("That " + item + " is not available.");
     }
 
     private void confirmSuccessfulCheckOutToUser(String item) {
