@@ -37,4 +37,12 @@ public class UserTest {
         user = new User("Ram", "asd", books);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
     }
+
+    @Test
+    public void shouldRemoveABookFromBookList() {
+        user = new User("Ram", "asd", books);
+        assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
+        user.removeBook(new Book("Harry", "JK", 2001));
+        assertEquals(false, user.hasBook(new Book("Harry", "JK", 2001)));
+    }
 }

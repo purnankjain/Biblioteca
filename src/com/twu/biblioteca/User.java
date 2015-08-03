@@ -35,4 +35,8 @@ public class User {
         }
         return false;
     }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
 }
