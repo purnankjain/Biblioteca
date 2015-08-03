@@ -31,4 +31,10 @@ public class UserTest {
         user.addBookToUserBookList(new Book("Harry", "JK", 2001));
         assertEquals(books, user.getAllBooks());
     }
+
+    @Test
+    public void checkWhetherUserHasBookOrNot() {
+        user = new User("Ram", "asd", books);
+        assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
+    }
 }

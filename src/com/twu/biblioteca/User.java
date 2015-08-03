@@ -26,4 +26,13 @@ public class User {
     public ArrayList<Book> getAllBooks() {
         return books;
     }
+
+    public boolean hasBook(Book book) {
+        for(Book thisBook : books) {
+            if(thisBook.equals(book)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
