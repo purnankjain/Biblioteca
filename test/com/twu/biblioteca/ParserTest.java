@@ -14,12 +14,14 @@ public class ParserTest {
     Parser parser;
     LibrarySection bookLibrarySection;
     LibrarySection movieLibrarySection;
+    ConfirmationHandler confirmationHandler;
 
     @Before
     public void initialise() {
         bookLibrarySection = mock(LibrarySection.class);
         movieLibrarySection = mock(LibrarySection.class);
-        parser = new Parser(bookLibrarySection, movieLibrarySection);
+        confirmationHandler = mock(ConfirmationHandler.class);
+        parser = new Parser(bookLibrarySection, movieLibrarySection, confirmationHandler);
     }
 
     @Test

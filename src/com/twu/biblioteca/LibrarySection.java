@@ -24,24 +24,24 @@ public class LibrarySection {
         return tempList;
     }
 
-    public String checkOutItem(String item) {
+    public boolean checkOutItem(String item) {
         for(Item item1 : availableItems) {
             if(item1.isTitled(item)) {
                 swapItem(item1, availableItems, unAvailableItems);
-                return "Thank you! Enjoy the " + sectionObject + ".";
+                return true;
             }
         }
-        return "That " + sectionObject + " is not available.";
+        return false;
     }
 
-    public String returnThisItem(String item) {
+    public boolean returnThisItem(String item) {
         for(Item item1 : unAvailableItems) {
             if(item1.isTitled(item)) {
                 swapItem(item1, unAvailableItems, availableItems);
-                return "Thank you for returning the " + sectionObject + ".";
+                return true;
             }
         }
-        return "That is not a valid " + sectionObject + " to return.";
+        return false;
     }
 
     private void swapItem(Item item, ArrayList<Item> fromThis, ArrayList<Item> toThis) {

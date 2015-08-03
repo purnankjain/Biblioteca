@@ -56,7 +56,7 @@ public class LibrarySectionTest {
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
-        assertEquals("Thank you! Enjoy the Item.", librarySection.checkOutItem("Hello"));
+        assertEquals(true, librarySection.checkOutItem("Hello"));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class LibrarySectionTest {
 
         when(mockBook.isTitled("Hello")).thenReturn(false);
 
-        assertEquals("That Item is not available.", librarySection.checkOutItem("Hello"));
+        assertEquals(false, librarySection.checkOutItem("Hello"));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class LibrarySectionTest {
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
-        assertEquals("Thank you for returning the Item.", librarySection.returnThisItem("Hello"));
+        assertEquals(true, librarySection.returnThisItem("Hello"));
     }
 
     @Test
@@ -92,6 +92,6 @@ public class LibrarySectionTest {
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
-        assertEquals("That is not a valid Item to return.", librarySection.returnThisItem("Hello"));
+        assertEquals(false, librarySection.returnThisItem("Hello"));
     }
 }

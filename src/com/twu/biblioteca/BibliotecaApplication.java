@@ -18,7 +18,6 @@ public class BibliotecaApplication {
         view.greetUser();
         Operation operation;
         String input;
-        boolean runLoop = true;
         while(true) {
             view.printMenu();
             input = view.readUserInput();

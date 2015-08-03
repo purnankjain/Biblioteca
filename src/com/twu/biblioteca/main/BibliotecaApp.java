@@ -29,7 +29,8 @@ public class BibliotecaApp {
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
         LibrarySection movieLibrarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
-        Parser parser = new Parser(bookLibrarySection, movieLibrarySection);
+        ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
+        Parser parser = new Parser(bookLibrarySection, movieLibrarySection, confirmationHandler);
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser);
         bibliotecaApplication.start();
     }
