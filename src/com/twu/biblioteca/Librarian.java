@@ -1,16 +1,16 @@
 package com.twu.biblioteca;
 
-public class Librarian {
+public class Librarian implements IUser{
 
-    String id;
+    String libraryNumber;
     String password;
 
-    public Librarian(String id, String password) {
-        this.id = id;
+    public Librarian(String libraryNumber, String password) {
+        this.libraryNumber = libraryNumber;
         this.password = password;
     }
 
     public boolean hasCredentials(String thatId, String thatPassword) {
-        return (id.equals(thatId) && password.equals(thatPassword));
+        return (libraryNumber.equals(thatId) && password.equals(thatPassword));
     }
 }

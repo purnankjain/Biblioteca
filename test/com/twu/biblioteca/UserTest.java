@@ -48,8 +48,15 @@ public class UserTest {
 
     @Test
     public void shouldReturnUserDetails() {
-
         String expected = "Ajay ajaygupta@yahoo.com 9999";
+
         assertEquals(expected, user.toString());
+    }
+
+    @Test
+    public void shouldCheckEqualityOfTwoUsers() {
+        User user2 = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>());
+
+        assertEquals(user2, user);
     }
 }

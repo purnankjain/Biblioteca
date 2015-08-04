@@ -11,13 +11,13 @@ import static org.mockito.Mockito.*;
 public class UserDatabaseTest {
 
     UserDatabase userDatabase;
-    ArrayList<User> users;
+    ArrayList<IUser> users;
     User user;
 
     @Before
     public void initialise() {
         user = mock(User.class);
-        users = new ArrayList<User>();
+        users = new ArrayList<IUser>();
         users.add(user);
         userDatabase = new UserDatabase(users);
     }
@@ -27,5 +27,12 @@ public class UserDatabaseTest {
         when(user.hasCredentials("Har", "asd")).thenReturn(true);
 
         assertEquals(true, userDatabase.checkCredentials("Har", "asd"));
+    }
+
+    @Test
+    public void shouldReturnUserWithGivenCredentials() {
+        when(user.hasCredentials("Har", "asd")).thenReturn(true);
+
+        assertEquals(user, userDatabase.login("Har", "asd"));
     }
 }
