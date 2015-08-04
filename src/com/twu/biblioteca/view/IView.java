@@ -1,7 +1,7 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.IUser;
 
 public interface IView {
-    IView renderView(User user);
+    IView renderView(IUser user);
 }

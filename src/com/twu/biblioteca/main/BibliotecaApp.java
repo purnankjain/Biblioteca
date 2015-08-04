@@ -31,7 +31,8 @@ public class BibliotecaApp {
         LibrarySection movieLibrarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
         ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
         Parser parser = new Parser(bookLibrarySection, movieLibrarySection, confirmationHandler);
-        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser);
+        IUser loggedInUser = new NullUser();
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser, loggedInUser);
         bibliotecaApplication.start();
     }
 }

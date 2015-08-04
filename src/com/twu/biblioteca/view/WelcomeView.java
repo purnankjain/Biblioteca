@@ -1,6 +1,6 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.User;
+import com.twu.biblioteca.IUser;
 
 public class WelcomeView implements IView {
 
@@ -11,7 +11,7 @@ public class WelcomeView implements IView {
     }
 
     @Override
-    public IView renderView(User user) {
+    public IView renderView(IUser user) {
         System.out.println("--WELCOME TO BIBLIOTECA--");
         return loginView;
     }

@@ -8,10 +8,12 @@ import com.twu.biblioteca.view.View;
 public class BibliotecaApplication {
     View view;
     Parser parser;
+    IUser loggedInUser;
 
-    public BibliotecaApplication(View view, Parser parser) {
+    public BibliotecaApplication(View view, Parser parser, IUser loggedInUser) {
         this.view = view;
         this.parser = parser;
+        this.loggedInUser = loggedInUser;
     }
 
     public void start() {

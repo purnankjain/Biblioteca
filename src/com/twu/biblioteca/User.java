@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.LoginView;
 
 import java.util.ArrayList;
 
@@ -23,6 +25,11 @@ public class User implements IUser{
 
     public boolean hasCredentials(String thatId, String thatPassword) {
         return (libraryNumber.equals(thatId) && password.equals(thatPassword));
+    }
+
+    @Override
+    public IView nextView(LoginView loginView) {
+        return loginView.nextView(this);
     }
 
     public void addBookToUserBookList(Book book) {

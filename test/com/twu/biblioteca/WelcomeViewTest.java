@@ -1,29 +1,27 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.view.LoginView;
-import com.twu.biblioteca.view.WelcomeView;
+import com.twu.biblioteca.view.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
 
 public class WelcomeViewTest {
 
     WelcomeView welcomeView;
     LoginView loginView;
     User user;
-    BufferedReader bufferedReader;
+    InputView inputView;
     UserDatabase userDatabase;
+    LibrarianMenuView librarianMenuView;
+    UserMenuView userMenuView;
+    NullUserView nullUserView;
 
     @Before
     public void initialise() {
         userDatabase = mock(UserDatabase.class);
-        bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        loginView = new LoginView(bufferedReader, userDatabase);
+        loginView = new LoginView(inputView, userDatabase, librarianMenuView, userMenuView, nullUserView);
         welcomeView = new WelcomeView(loginView);
         user = mock(User.class);
     }

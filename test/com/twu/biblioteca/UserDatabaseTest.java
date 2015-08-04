@@ -13,13 +13,15 @@ public class UserDatabaseTest {
     UserDatabase userDatabase;
     ArrayList<IUser> users;
     User user;
+    IUser loggedInUser;
 
     @Before
     public void initialise() {
         user = mock(User.class);
         users = new ArrayList<IUser>();
         users.add(user);
-        userDatabase = new UserDatabase(users);
+        loggedInUser = mock(User.class);
+        userDatabase = new UserDatabase(users, loggedInUser);
     }
 
     @Test
