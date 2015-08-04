@@ -16,7 +16,7 @@ public class UserTest {
 
     @Before
     public void initialise() {
-        user = new User("Ram", "asd", new ArrayList<Book>());
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>());
         books = new ArrayList<Book>();
         books.add(new Book("Harry", "JK", 2001));
     }
@@ -34,15 +34,22 @@ public class UserTest {
 
     @Test
     public void checkWhetherUserHasBookOrNot() {
-        user = new User("Ram", "asd", books);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
     }
 
     @Test
     public void shouldRemoveABookFromBookList() {
-        user = new User("Ram", "asd", books);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
         user.removeBook(new Book("Harry", "JK", 2001));
         assertEquals(false, user.hasBook(new Book("Harry", "JK", 2001)));
+    }
+
+    @Test
+    public void shouldReturnUserDetails() {
+
+        String expected = "Ajay ajaygupta@yahoo.com 9999";
+        assertEquals(expected, user.toString());
     }
 }

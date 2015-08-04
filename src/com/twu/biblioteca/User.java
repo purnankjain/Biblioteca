@@ -7,11 +7,17 @@ import java.util.ArrayList;
 public class User {
     private String id;
     private String password;
+    private String name;
+    private String email;
+    private String phoneNumber;
     private ArrayList<Book> books;
 
-    public User(String id, String password, ArrayList<Book> books) {
+    public User(String id, String password, String name, String email, String phoneNumber, ArrayList<Book> books) {
         this.id = id;
         this.password = password;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
         this.books = books;
     }
 
@@ -34,6 +40,11 @@ public class User {
             }
         }
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + email + " " + phoneNumber;
     }
 
     public void removeBook(Book book) {
