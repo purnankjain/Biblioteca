@@ -3,6 +3,8 @@ package com.twu.biblioteca.operations;
 
 import com.twu.biblioteca.ConfirmationHandler;
 import com.twu.biblioteca.LibrarySection;
+import com.twu.biblioteca.view.IView;
+import com.twu.biblioteca.view.LibrarianMenuView;
 import com.twu.biblioteca.view.View;
 
 public class ReturnItemOperation implements Operation {
@@ -20,5 +22,10 @@ public class ReturnItemOperation implements Operation {
     public void execute(View view) {
         view.printToConsole("Enter " + item + " to Return : \n");
         confirmationHandler.validateReturn(item, librarySection.returnThisItem(view.readUserInput()));
+    }
+
+    @Override
+    public IView nextView(LibrarianMenuView librarianMenuView) {
+        return null;
     }
 }

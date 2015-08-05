@@ -1,5 +1,6 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.parser.Parser;
 import com.twu.biblioteca.view.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,12 +18,17 @@ public class LoginViewTest {
     UserMenuView userMenuView;
     NullUserView nullUserView;
     User mockUser;
+    ListView listView;
+    CheckOutView checkOutView;
+    ReturnView returnView;
+    InvalidOperationView invalidOperationView;
+    Parser parser;
 
     @Before
     public void initialise() {
         inputView = mock(InputView.class);
         userDatabase = mock(UserDatabase.class);
-        librarianMenuView = new LibrarianMenuView();
+        librarianMenuView = new LibrarianMenuView(inputView, listView, checkOutView, returnView, invalidOperationView, parser);
         userMenuView = mock(UserMenuView.class);
         mockUser = mock(User.class);
         nullUserView = mock(NullUserView.class);
