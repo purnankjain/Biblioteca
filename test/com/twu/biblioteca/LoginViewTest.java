@@ -29,7 +29,7 @@ public class LoginViewTest {
     public void initialise() {
         inputView = mock(InputView.class);
         userDatabase = mock(UserDatabase.class);
-        librarianMenuView = new LibrarianMenuView(inputView, listView, checkOutView, returnView, invalidOperationView, parser);
+        librarianMenuView = new LibrarianMenuView(inputView, parser, nextViewHandler);
         userMenuView = mock(UserMenuView.class);
         mockUser = new User("", "", "", "", "", null, UserRoles.ADMIN_ROLE);
         nullUserView = mock(NullUserView.class);

@@ -7,7 +7,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class LibrarianMenuViewTest {
 
@@ -20,9 +21,11 @@ public class LibrarianMenuViewTest {
     LibrarianMenuView librarianMenuView;
     ListOperation listOperation;
     IUser user;
+    NextViewHandler nextViewHandler;
 
     @Before
     public void initialise() {
+        nextViewHandler = mock(NextViewHandler.class);
         listOperation = mock(ListOperation.class);
         listView = new ListView();
         checkOutView = mock(CheckOutView.class);
@@ -30,15 +33,14 @@ public class LibrarianMenuViewTest {
         invalidOperationView = mock(InvalidOperationView.class);
         inputView = mock(InputView.class);
         parser = mock(Parser.class);
-        librarianMenuView = new LibrarianMenuView(inputView, listView, checkOutView,
-                returnView, invalidOperationView, parser);
+        librarianMenuView = new LibrarianMenuView(inputView, parser, nextViewHandler);
     }
 
     @Test
     public void shouldReturnViewAccordingToOperationSelected() {
         when(inputView.readInput()).thenReturn("List Books");
         when(parser.selectOperation("List Books")).thenReturn(listOperation);
-        when(listOperation.nextView(librarianMenuView)).thenReturn(listView);
+        when(listOperation.nextView(nextViewHandler, user)).thenReturn(listView);
 
         assertEquals(ListView.class, librarianMenuView.renderView(user).getClass());
     }

@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.LoginView;
-import com.twu.biblioteca.view.NextViewHandler;
 
 import java.util.ArrayList;
 
@@ -32,12 +31,12 @@ public class User implements IUser{
     }
 
     @Override
-    public IView nextView(NextViewHandler nextViewHandler) {
+    public IView nextViewAfterLogin(NextViewHandler nextViewHandler) {
         return nextViewHandler.nextViewAfterLogin(this);
     }
 
     @Override
-    public IView nextView(LoginView loginView) {
+    public IView nextViewAfterLogin(LoginView loginView) {
         return null;
     }
 

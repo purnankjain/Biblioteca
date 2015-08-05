@@ -17,7 +17,7 @@ public class LoginView implements IView {
     @Override
     public IView renderView(IUser user) {
         user = loginUser();
-        return user.nextView(nextViewHandler);
+        return user.nextViewAfterLogin(nextViewHandler);
     }
 
     private IUser loginUser() {

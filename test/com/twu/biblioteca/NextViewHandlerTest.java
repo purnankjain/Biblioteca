@@ -1,7 +1,6 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.view.LibrarianMenuView;
-import com.twu.biblioteca.view.NextViewHandler;
 import com.twu.biblioteca.view.NullUserView;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,8 +16,9 @@ public class NextViewHandlerTest {
     @Before
     public void initialise() {
         user = new User(null, null, null, null, null, null, UserRoles.ADMIN_ROLE);
-        librarianMenuView = new LibrarianMenuView(null, null, null, null, null, null);
-        nextViewHandler = new NextViewHandler(null, librarianMenuView, null, null, new NullUserView(), null , null);
+        librarianMenuView = new LibrarianMenuView(null, null, null);
+        nextViewHandler = new NextViewHandler(null, librarianMenuView, null, null,
+                new NullUserView(),null , null , null, null);
     }
 
     @Test

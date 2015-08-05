@@ -2,12 +2,11 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.LoginView;
-import com.twu.biblioteca.view.NextViewHandler;
 
 public class NullUser implements IUser{
 
     @Override
-    public IView nextView(LoginView loginView) {
+    public IView nextViewAfterLogin(LoginView loginView) {
         return null;
     }
 
@@ -17,7 +16,7 @@ public class NullUser implements IUser{
     }
 
     @Override
-    public IView nextView(NextViewHandler nextViewHandler) {
+    public IView nextViewAfterLogin(NextViewHandler nextViewHandler) {
         return nextViewHandler.nextViewAfterLogin(this);
     }
 }

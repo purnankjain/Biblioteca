@@ -2,9 +2,11 @@ package com.twu.biblioteca.operations;
 
 
 import com.twu.biblioteca.ConfirmationHandler;
+import com.twu.biblioteca.IUser;
 import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.view.IView;
 import com.twu.biblioteca.view.LibrarianMenuView;
+import com.twu.biblioteca.NextViewHandler;
 import com.twu.biblioteca.view.View;
 
 public class CheckOutOperation implements Operation {
@@ -27,5 +29,10 @@ public class CheckOutOperation implements Operation {
     @Override
     public IView nextView(LibrarianMenuView librarianMenuView) {
         return null;
+    }
+
+    @Override
+    public IView nextView(NextViewHandler nextViewHandler, IUser user) {
+        return nextViewHandler.nextViewOnSelection(this);
     }
 }
