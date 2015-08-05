@@ -7,7 +7,7 @@ public class NullUser implements IUser{
 
     @Override
     public IView nextView(LoginView loginView) {
-        return loginView.nextView(this);
+        return null;
     }
 
     @Override

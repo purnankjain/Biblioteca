@@ -14,14 +14,13 @@ public class WelcomeViewTest {
     User user;
     InputView inputView;
     UserDatabase userDatabase;
-    LibrarianMenuView librarianMenuView;
-    UserMenuView userMenuView;
-    NullUserView nullUserView;
+    NextViewHandler nextViewHandler;
 
     @Before
     public void initialise() {
+        nextViewHandler = mock(NextViewHandler.class);
         userDatabase = mock(UserDatabase.class);
-        loginView = new LoginView(inputView, userDatabase, librarianMenuView, userMenuView, nullUserView);
+        loginView = new LoginView(inputView, userDatabase, nextViewHandler);
         welcomeView = new WelcomeView(loginView);
         user = mock(User.class);
     }

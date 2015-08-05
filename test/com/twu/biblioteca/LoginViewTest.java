@@ -23,6 +23,7 @@ public class LoginViewTest {
     ReturnView returnView;
     InvalidOperationView invalidOperationView;
     Parser parser;
+    NextViewHandler nextViewHandler;
 
     @Before
     public void initialise() {
@@ -30,16 +31,17 @@ public class LoginViewTest {
         userDatabase = mock(UserDatabase.class);
         librarianMenuView = new LibrarianMenuView(inputView, listView, checkOutView, returnView, invalidOperationView, parser);
         userMenuView = mock(UserMenuView.class);
-        mockUser = mock(User.class);
+        mockUser = new User("", "", "", "", "", null, UserRoles.ADMIN_ROLE);
         nullUserView = mock(NullUserView.class);
-        loginView = new LoginView(inputView, userDatabase, librarianMenuView, userMenuView, nullUserView);
+        nextViewHandler = mock(NextViewHandler.class);
+        loginView = new LoginView(inputView, userDatabase, nextViewHandler);
     }
 
     @Test
     public void shouldReturnAnIView() {
         when(inputView.readInput()).thenReturn("asd").thenReturn("asd");
         when(userDatabase.login("asd", "asd")).thenReturn(mockUser);
-        when(mockUser.nextView(loginView)).thenReturn(librarianMenuView);
+        when(nextViewHandler.nextViewAfterLogin(mockUser)).thenReturn(librarianMenuView);
 
         assertEquals(LibrarianMenuView.class, loginView.renderView(mockUser).getClass());
     }

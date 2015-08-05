@@ -32,7 +32,7 @@ public class User implements IUser{
 
     @Override
     public IView nextView(LoginView loginView) {
-        return loginView.nextView(this);
+        return null;
     }
 
     public void addBookToUserBookList(Book book) {

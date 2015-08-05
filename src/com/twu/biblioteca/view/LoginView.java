@@ -6,23 +6,18 @@ public class LoginView implements IView {
 
     InputView inputView;
     UserDatabase userDatabase;
-    LibrarianMenuView librarianMenuView;
-    UserMenuView userMenuView;
-    NullUserView nullUserView;
+    NextViewHandler nextViewHandler;
 
-    public LoginView(InputView inputView, UserDatabase userDatabase, LibrarianMenuView librarianMenuView,
-                     UserMenuView userMenuView, NullUserView nullUserView) {
+    public LoginView(InputView inputView, UserDatabase userDatabase, NextViewHandler nextViewHandler) {
         this.inputView = inputView;
         this.userDatabase = userDatabase;
-        this.librarianMenuView = librarianMenuView;
-        this.userMenuView = userMenuView;
-        this.nullUserView = nullUserView;
+        this.nextViewHandler = nextViewHandler;
     }
 
     @Override
     public IView renderView(IUser user) {
         user = loginUser();
-        return user.nextView(this);
+        return nextViewHandler.nextViewAfterLogin(user);
     }
 
     private IUser loginUser() {
@@ -33,13 +28,4 @@ public class LoginView implements IView {
 
         return userDatabase.login(libraryNumber, password);
     }
-
-    public IView nextView(User user) {
-        return userMenuView;
-    }
-
-    public IView nextView(NullUser nullUser) {
-        return nullUserView;
-    }
-
 }
