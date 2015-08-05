@@ -19,4 +19,9 @@ public class NullUser implements IUser{
     public IView nextViewAfterLogin(NextViewHandler nextViewHandler) {
         return nextViewHandler.nextViewAfterLogin(this);
     }
+
+    @Override
+    public IView nextViewOnInvalidSelection(NextViewHandler nextViewHandler) {
+        return nextViewHandler.nextViewOnInvalidSelection(this);
+    }
 }

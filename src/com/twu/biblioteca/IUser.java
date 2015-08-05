@@ -7,4 +7,5 @@ public interface IUser {
     IView nextViewAfterLogin(LoginView loginView);
     boolean hasCredentials(String libraryNumber, String password);
     IView nextViewAfterLogin(NextViewHandler nextViewHandler);
+    IView nextViewOnInvalidSelection(NextViewHandler nextViewHandler);
 }

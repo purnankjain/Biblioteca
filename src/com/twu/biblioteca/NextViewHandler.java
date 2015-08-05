@@ -63,4 +63,19 @@ public class NextViewHandler {
     public IView nextViewOnSelection(ReturnItemOperation returnItemOperation) {
         return returnView;
     }
+
+    public IView nextViewOnInvalidSelection(NullUser nullUser) {
+        return loginView;
+    }
+
+    public IView nextViewOnInvalidSelection(User user) {
+        if(user.hasRole(UserRoles.ADMIN_ROLE)) {
+            return librarianMenuView;
+        }
+        return userMenuView;
+    }
+
+    public IView nextViewOnInvalidCredentials() {
+        return loginView;
+    }
 }

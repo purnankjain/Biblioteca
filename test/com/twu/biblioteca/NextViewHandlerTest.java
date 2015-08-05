@@ -18,7 +18,7 @@ public class NextViewHandlerTest {
         user = new User(null, null, null, null, null, null, UserRoles.ADMIN_ROLE);
         librarianMenuView = new LibrarianMenuView(null, null, null);
         nextViewHandler = new NextViewHandler(null, librarianMenuView, null, null,
-                new NullUserView(),null , null , null, null);
+                new NullUserView(null),null , null , null, null);
     }
 
     @Test

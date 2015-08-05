@@ -35,6 +35,8 @@ public class LibrarianMenuView implements IView{
         System.out.println("CheckOut Movie");
         System.out.println("Return Book");
         System.out.println("Return Movie");
+        System.out.println("Logout");
+        System.out.println("Quit");
         System.out.println("=======================");
         System.out.println("Enter Choice : ");
     }
