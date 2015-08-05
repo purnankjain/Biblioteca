@@ -21,9 +21,10 @@ public class UserDatabase {
 
     public IUser login(String libraryNumber, String password) {
         for(IUser user : users) {
-            if(user.hasCredentials(libraryNumber, password))
+            if(user.hasCredentials(libraryNumber, password)) {
                 loggedInUser = user;
                 return user;
+            }
         }
         return new NullUser();
     }

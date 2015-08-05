@@ -13,14 +13,17 @@ public class User implements IUser{
     private String email;
     private String phoneNumber;
     private ArrayList<Book> books;
+    private UserRoles role;
 
-    public User(String libraryNumber, String password, String name, String email, String phoneNumber, ArrayList<Book> books) {
+    public User(String libraryNumber, String password, String name, String email, String phoneNumber,
+                ArrayList<Book> books, UserRoles role) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.books = books;
+        this.role = role;
     }
 
     public boolean hasCredentials(String thatId, String thatPassword) {
@@ -47,6 +50,10 @@ public class User implements IUser{
             }
         }
         return false;
+    }
+
+    public boolean hasRole(UserRoles thatRole) {
+        return role.equals(thatRole);
     }
 
     @Override

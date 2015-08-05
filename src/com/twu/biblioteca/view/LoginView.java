@@ -34,10 +34,6 @@ public class LoginView implements IView {
         return userDatabase.login(libraryNumber, password);
     }
 
-    public IView nextView(Librarian librarian) {
-        return librarianMenuView;
-    }
-
     public IView nextView(User user) {
         return userMenuView;
     }

@@ -16,7 +16,7 @@ public class UserTest {
 
     @Before
     public void initialise() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>());
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), UserRoles.ADMIN_ROLE);
         books = new ArrayList<Book>();
         books.add(new Book("Harry", "JK", 2001));
     }
@@ -34,13 +34,13 @@ public class UserTest {
 
     @Test
     public void checkWhetherUserHasBookOrNot() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, UserRoles.NORMAL_USER);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
     }
 
     @Test
     public void shouldRemoveABookFromBookList() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, UserRoles.ADMIN_ROLE);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
         user.removeBook(new Book("Harry", "JK", 2001));
         assertEquals(false, user.hasBook(new Book("Harry", "JK", 2001)));
@@ -55,8 +55,13 @@ public class UserTest {
 
     @Test
     public void shouldCheckEqualityOfTwoUsers() {
-        User user2 = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>());
+        User user2 = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), UserRoles.NORMAL_USER);
 
         assertEquals(user2, user);
+    }
+
+    @Test
+    public void shouldConfirmUserRole() {
+        assertEquals(true, user.hasRole(UserRoles.ADMIN_ROLE));
     }
 }
