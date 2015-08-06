@@ -1,11 +1,14 @@
 package com.twu.biblioteca.main;
 
-import com.twu.biblioteca.*;
+import com.twu.biblioteca.BibliotecaApplication;
+import com.twu.biblioteca.ConfirmationHandler;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Item;
-import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.user.NullUser;
 import com.twu.biblioteca.view.View;
 
 import java.io.BufferedReader;

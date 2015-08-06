@@ -1,13 +1,13 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.IUser;
-import com.twu.biblioteca.NextViewHandler;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.Controller;
 
 public class NullUserView implements IView {
 
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
-    public NullUserView(NextViewHandler nextViewHandler) {
+    public NullUserView(Controller nextViewHandler) {
         this.nextViewHandler = nextViewHandler;
     }
 

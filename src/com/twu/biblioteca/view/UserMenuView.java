@@ -1,7 +1,7 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.IUser;
-import com.twu.biblioteca.NextViewHandler;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.operations.Operation;
 import com.twu.biblioteca.parser.Parser;
 
@@ -9,9 +9,9 @@ public class UserMenuView implements IView {
 
     InputView inputView;
     Parser parser;
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
-    public UserMenuView(InputView inputView, Parser parser, NextViewHandler nextViewHandler) {
+    public UserMenuView(InputView inputView, Parser parser, Controller nextViewHandler) {
         this.inputView = inputView;
         this.parser = parser;
         this.nextViewHandler = nextViewHandler;

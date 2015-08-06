@@ -1,6 +1,8 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserRoles;
 import org.junit.Before;
 import org.junit.Test;
 

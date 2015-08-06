@@ -1,11 +1,11 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.IUser;
-import com.twu.biblioteca.NextViewHandler;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.Controller;
 
 public class InvalidOperationView implements IView {
 
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
     @Override
     public IView renderView(IUser user) {

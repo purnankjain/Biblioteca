@@ -1,5 +1,9 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserRoles;
 import com.twu.biblioteca.view.LibrarianMenuView;
 import com.twu.biblioteca.view.NullUserView;
 import org.junit.Before;
@@ -9,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 public class NextViewHandlerTest {
 
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
     LibrarianMenuView librarianMenuView;
     IUser user;
 
@@ -17,7 +21,7 @@ public class NextViewHandlerTest {
     public void initialise() {
         user = new User(null, null, null, null, null, null, UserRoles.ADMIN_ROLE);
         librarianMenuView = new LibrarianMenuView(null, null, null);
-        nextViewHandler = new NextViewHandler(null, librarianMenuView, null, null,
+        nextViewHandler = new Controller(null, librarianMenuView, null, null,
                 new NullUserView(null),null , null , null, null);
     }
 

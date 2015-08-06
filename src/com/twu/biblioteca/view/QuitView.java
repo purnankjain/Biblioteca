@@ -1,6 +1,6 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.IUser;
+import com.twu.biblioteca.user.IUser;
 
 public class QuitView implements IView{
     @Override

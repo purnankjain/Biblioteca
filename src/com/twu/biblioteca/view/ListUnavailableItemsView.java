@@ -3,7 +3,8 @@ package com.twu.biblioteca.view;
 import com.twu.biblioteca.operations.Operation;
 import com.twu.biblioteca.user.IUser;
 
-public class CheckOutView implements IView, IViewOperations {
+public class ListUnavailableItemsView implements IView, IViewOperations {
+
     @Override
     public IView renderView(IUser user) {
         return null;
@@ -14,3 +15,4 @@ public class CheckOutView implements IView, IViewOperations {
         return null;
     }
 }
+

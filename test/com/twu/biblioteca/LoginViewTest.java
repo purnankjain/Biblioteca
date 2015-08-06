@@ -1,6 +1,9 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserDatabase;
+import com.twu.biblioteca.user.UserRoles;
 import com.twu.biblioteca.view.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,12 +21,12 @@ public class LoginViewTest {
     UserMenuView userMenuView;
     NullUserView nullUserView;
     User mockUser;
-    ListView listView;
+    ListAvailableItemsView listAvailableItemsView;
     CheckOutView checkOutView;
     ReturnView returnView;
     InvalidOperationView invalidOperationView;
     Parser parser;
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
     @Before
     public void initialise() {
@@ -33,7 +36,7 @@ public class LoginViewTest {
         userMenuView = mock(UserMenuView.class);
         mockUser = new User("", "", "", "", "", null, UserRoles.ADMIN_ROLE);
         nullUserView = mock(NullUserView.class);
-        nextViewHandler = mock(NextViewHandler.class);
+        nextViewHandler = mock(Controller.class);
         loginView = new LoginView(inputView, userDatabase, nextViewHandler);
     }
 

@@ -4,12 +4,16 @@ import com.twu.biblioteca.operations.CheckOutOperation;
 import com.twu.biblioteca.operations.ListOperation;
 import com.twu.biblioteca.operations.QuitOperation;
 import com.twu.biblioteca.operations.ReturnItemOperation;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.user.UserRoles;
 import com.twu.biblioteca.view.*;
 
-public class NextViewHandler {
+public class Controller {
     InvalidOperationView invalidOperationView;
     LibrarianMenuView librarianMenuView;
-    ListView listView;
+    ListAvailableItemsView listAvailableItemsView;
     LoginView loginView;
     NullUserView nullUserView;
     ReturnView returnView;
@@ -17,13 +21,13 @@ public class NextViewHandler {
     CheckOutView checkOutView;
     QuitView quitView;
 
-    public NextViewHandler(InvalidOperationView invalidOperationView, LibrarianMenuView librarianMenuView,
-                           ListView listView, LoginView loginView, NullUserView nullUserView,
-                           ReturnView returnView, UserMenuView userMenuView, CheckOutView checkOutView,
-                           QuitView quitView) {
+    public Controller(InvalidOperationView invalidOperationView, LibrarianMenuView librarianMenuView,
+                      ListAvailableItemsView listAvailableItemsView, LoginView loginView, NullUserView nullUserView,
+                      ReturnView returnView, UserMenuView userMenuView, CheckOutView checkOutView,
+                      QuitView quitView) {
         this.invalidOperationView = invalidOperationView;
         this.librarianMenuView = librarianMenuView;
-        this.listView = listView;
+        this.listAvailableItemsView = listAvailableItemsView;
         this.loginView = loginView;
         this.nullUserView = nullUserView;
         this.returnView = returnView;
@@ -44,7 +48,7 @@ public class NextViewHandler {
     }
 
     public IView nextViewOnSelection(ListOperation listOperation) {
-        return listView;
+        return listAvailableItemsView;
     }
 
     public IView nextViewOnSelection(CheckOutOperation checkOutOperation) {

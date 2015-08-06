@@ -3,6 +3,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.operations.Operation;
 import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.IUser;
 import com.twu.biblioteca.view.View;
 
 public class BibliotecaApplication {

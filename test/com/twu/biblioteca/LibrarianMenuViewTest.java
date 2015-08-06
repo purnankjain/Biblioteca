@@ -2,6 +2,7 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.operations.ListOperation;
 import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.IUser;
 import com.twu.biblioteca.view.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import static org.mockito.Mockito.when;
 
 public class LibrarianMenuViewTest {
 
-    ListView listView;
+    ListAvailableItemsView listAvailableItemsView;
     CheckOutView checkOutView;
     ReturnView returnView;
     InvalidOperationView invalidOperationView;
@@ -21,13 +22,13 @@ public class LibrarianMenuViewTest {
     LibrarianMenuView librarianMenuView;
     ListOperation listOperation;
     IUser user;
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
     @Before
     public void initialise() {
-        nextViewHandler = mock(NextViewHandler.class);
+        nextViewHandler = mock(Controller.class);
         listOperation = mock(ListOperation.class);
-        listView = new ListView();
+        listAvailableItemsView = new ListAvailableItemsView();
         checkOutView = mock(CheckOutView.class);
         returnView = mock(ReturnView.class);
         invalidOperationView = mock(InvalidOperationView.class);
@@ -40,8 +41,8 @@ public class LibrarianMenuViewTest {
     public void shouldReturnViewAccordingToOperationSelected() {
         when(inputView.readInput()).thenReturn("List Books");
         when(parser.selectOperation("List Books")).thenReturn(listOperation);
-        when(listOperation.nextView(nextViewHandler, user)).thenReturn(listView);
+        when(listOperation.nextView(nextViewHandler, user)).thenReturn(listAvailableItemsView);
 
-        assertEquals(ListView.class, librarianMenuView.renderView(user).getClass());
+        assertEquals(ListAvailableItemsView.class, librarianMenuView.renderView(user).getClass());
     }
 }

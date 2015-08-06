@@ -1,14 +1,16 @@
 package com.twu.biblioteca.view;
 
 import com.twu.biblioteca.*;
+import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.user.UserDatabase;
 
 public class LoginView implements IView {
 
     InputView inputView;
     UserDatabase userDatabase;
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
 
-    public LoginView(InputView inputView, UserDatabase userDatabase, NextViewHandler nextViewHandler) {
+    public LoginView(InputView inputView, UserDatabase userDatabase, Controller nextViewHandler) {
         this.inputView = inputView;
         this.userDatabase = userDatabase;
         this.nextViewHandler = nextViewHandler;

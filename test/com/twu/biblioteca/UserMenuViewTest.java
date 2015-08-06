@@ -2,8 +2,9 @@ package com.twu.biblioteca;
 
 import com.twu.biblioteca.operations.ListOperation;
 import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.view.InputView;
-import com.twu.biblioteca.view.ListView;
+import com.twu.biblioteca.view.ListAvailableItemsView;
 import com.twu.biblioteca.view.UserMenuView;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,18 +18,18 @@ public class UserMenuViewTest {
     UserMenuView userMenuView;
     InputView inputView;
     Parser parser;
-    NextViewHandler nextViewHandler;
+    Controller nextViewHandler;
     ListOperation listOperation;
     User user;
-    ListView listView;
+    ListAvailableItemsView listAvailableItemsView;
 
     @Before
     public void initialise() {
         inputView = mock(InputView.class);
         parser = mock(Parser.class);
-        listView = new ListView();
+        listAvailableItemsView = new ListAvailableItemsView();
         listOperation = mock(ListOperation.class);
-        nextViewHandler = mock(NextViewHandler.class);
+        nextViewHandler = mock(Controller.class);
         userMenuView = new UserMenuView(inputView, parser, nextViewHandler);
     }
 
@@ -36,8 +37,8 @@ public class UserMenuViewTest {
     public void shouldReturnNextView() {
         when(inputView.readInput()).thenReturn("List Books");
         when(parser.selectOperation("List Books")).thenReturn(listOperation);
-        when(listOperation.nextView(nextViewHandler, user)).thenReturn(listView);
+        when(listOperation.nextView(nextViewHandler, user)).thenReturn(listAvailableItemsView);
 
-        assertEquals(ListView.class, userMenuView.renderView(user).getClass());
+        assertEquals(ListAvailableItemsView.class, userMenuView.renderView(user).getClass());
     }
 }
