@@ -13,7 +13,7 @@ public class LibrarianMenuViewTest {
 
     ListAvailableItemsView listAvailableItemsView;
     CheckOutView checkOutView;
-    ReturnView returnView;
+    ReturnItemView returnItemView;
     InvalidOperationView invalidOperationView;
     InputView inputView;
     LibrarianMenuView librarianMenuView;
@@ -25,7 +25,7 @@ public class LibrarianMenuViewTest {
         controller = mock(Controller.class);
         listAvailableItemsView = new ListAvailableItemsView(null);
         checkOutView = mock(CheckOutView.class);
-        returnView = mock(ReturnView.class);
+        returnItemView = mock(ReturnItemView.class);
         invalidOperationView = mock(InvalidOperationView.class);
         inputView = mock(InputView.class);
         librarianMenuView = new LibrarianMenuView(inputView);
