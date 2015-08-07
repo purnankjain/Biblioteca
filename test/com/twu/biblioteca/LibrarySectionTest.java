@@ -33,7 +33,7 @@ public class LibrarySectionTest {
         expectedBookList.add(String.format("%25s %25s %6s","The Alchemist", "Poelo Coehlo", "2005"));
         expectedBookList.add(String.format("%25s %25s %6s","Harry Potter", "J.K Rowling", "2005"));
 
-        assertEquals(expectedBookList, librarySection.getAllItems());
+        assertEquals(expectedBookList, librarySection.getAllAvailableItems());
     }
 
     @Test
@@ -44,7 +44,18 @@ public class LibrarySectionTest {
         ArrayList<String> expectedMovies = new ArrayList<>();
         expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
 
-        assertEquals(expectedMovies, librarySection.getAllItems());
+        assertEquals(expectedMovies, librarySection.getAllAvailableItems());
+    }
+
+    @Test
+    public void shouldReturnListOfAllCheckedOutItems() {
+        ArrayList<Item> movieList = new ArrayList<>();
+        movieList.add(new Movie("Harry", 2001, "yap", "3"));
+        librarySection = new LibrarySection(new ArrayList<Item>(), movieList);
+        ArrayList<String> expectedMovies = new ArrayList<>();
+        expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
+
+        assertEquals(expectedMovies, librarySection.getAllCheckedOutItems());
     }
 
     @Test

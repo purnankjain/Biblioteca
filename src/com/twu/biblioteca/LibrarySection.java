@@ -14,9 +14,17 @@ public class LibrarySection {
         this.unAvailableItems = unAvailableItems;
     }
 
-    public ArrayList<String> getAllItems() {
+    public ArrayList<String> getAllAvailableItems() {
         ArrayList<String> tempList = new ArrayList<String>();
         for(Item item : availableItems) {
+            tempList.add(item.toString());
+        }
+        return tempList;
+    }
+
+    public ArrayList<String> getAllCheckedOutItems() {
+        ArrayList<String> tempList = new ArrayList<String>();
+        for(Item item : unAvailableItems) {
             tempList.add(item.toString());
         }
         return tempList;

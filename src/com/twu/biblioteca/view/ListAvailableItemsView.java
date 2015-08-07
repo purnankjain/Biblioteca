@@ -16,7 +16,7 @@ public class ListAvailableItemsView implements IView {
 
     @Override
     public IView renderView(Controller controller, User user) {
-        ArrayList<String> list = librarySection.getAllItems();
+        ArrayList<String> list = librarySection.getAllAvailableItems();
         for(String str : list) {
             System.out.println(str);
         }
