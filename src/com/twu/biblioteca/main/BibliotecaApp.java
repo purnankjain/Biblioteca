@@ -25,11 +25,11 @@ public class BibliotecaApp {
         Book book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        LibrarySection bookLibrarySection = new LibrarySection("Book", bookList, new ArrayList<Item>());
+        LibrarySection bookLibrarySection = new LibrarySection(bookList, new ArrayList<Item>());
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
-        LibrarySection movieLibrarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
+        LibrarySection movieLibrarySection = new LibrarySection(movieList, new ArrayList<Item>());
         ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
         User loggedInUser = new User();
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, loggedInUser);

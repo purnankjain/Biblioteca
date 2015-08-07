@@ -23,7 +23,7 @@ public class LibrarianMenuViewTest {
     @Before
     public void initialise() {
         controller = mock(Controller.class);
-        listAvailableItemsView = new ListAvailableItemsView();
+        listAvailableItemsView = new ListAvailableItemsView(null);
         checkOutView = mock(CheckOutView.class);
         returnView = mock(ReturnView.class);
         invalidOperationView = mock(InvalidOperationView.class);

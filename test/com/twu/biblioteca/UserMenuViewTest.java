@@ -22,7 +22,7 @@ public class UserMenuViewTest {
     @Before
     public void initialise() {
         inputView = mock(InputView.class);
-        listAvailableItemsView = new ListAvailableItemsView();
+        listAvailableItemsView = new ListAvailableItemsView(null);
         controller = mock(Controller.class);
         userMenuView = new UserMenuView(inputView);
     }

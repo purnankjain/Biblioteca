@@ -6,12 +6,10 @@ import java.util.ArrayList;
 
 
 public class LibrarySection {
-    private String sectionObject;
     private ArrayList<Item> availableItems;
     private ArrayList<Item> unAvailableItems;
 
-    public LibrarySection(String sectionObject, ArrayList<Item> availableItems, ArrayList<Item> unAvailableItems) {
-        this.sectionObject = sectionObject;
+    public LibrarySection(ArrayList<Item> availableItems, ArrayList<Item> unAvailableItems) {
         this.availableItems = availableItems;
         this.unAvailableItems = unAvailableItems;
     }

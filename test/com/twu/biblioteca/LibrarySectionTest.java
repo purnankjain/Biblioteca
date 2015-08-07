@@ -24,7 +24,7 @@ public class LibrarySectionTest {
         book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        librarySection = new LibrarySection("Item", bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
     }
 
     @Test
@@ -40,7 +40,7 @@ public class LibrarySectionTest {
     public void shouldReturnListOfAllAvailableBooks() {
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
-        librarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
+        librarySection = new LibrarySection(movieList, new ArrayList<Item>());
         ArrayList<String> expectedMovies = new ArrayList<>();
         expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
 
@@ -52,7 +52,7 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection("Item", bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
@@ -64,7 +64,7 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection("Item", bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
 
         when(mockBook.isTitled("Hello")).thenReturn(false);
 
@@ -76,7 +76,7 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection("Item", new ArrayList<Item>(), bookList);
+        librarySection = new LibrarySection(new ArrayList<Item>(), bookList);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
@@ -88,7 +88,7 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection("Item", bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
