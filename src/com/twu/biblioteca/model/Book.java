@@ -1,6 +1,8 @@
 package com.twu.biblioteca.model;
 
 
+import com.twu.biblioteca.user.User;
+
 public class Book implements Item{
     private String name;
     private String author;
@@ -20,6 +22,11 @@ public class Book implements Item{
     @Override
     public String toString() {
         return String.format("%25s %25s %6s",name, author, publishYear);
+    }
+
+    @Override
+    public void assignTo(User user) {
+        user.addBookToUserBookList(this);
     }
 
     @Override

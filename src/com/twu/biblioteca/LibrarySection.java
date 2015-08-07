@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import com.twu.biblioteca.model.Item;
+import com.twu.biblioteca.user.User;
 
 import java.util.ArrayList;
 
@@ -30,10 +31,11 @@ public class LibrarySection {
         return tempList;
     }
 
-    public boolean checkOutItem(String item) {
-        for(Item item1 : availableItems) {
-            if(item1.isTitled(item)) {
-                swapItem(item1, availableItems, unAvailableItems);
+    public boolean checkOutItem(String thatItem, User user) {
+        for(Item item : availableItems) {
+            if(item.isTitled(thatItem)) {
+                swapItem(item, availableItems, unAvailableItems);
+                item.assignTo(user);
                 return true;
             }
         }

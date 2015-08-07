@@ -21,7 +21,7 @@ public class CheckOutView implements IView {
     @Override
     public IView renderView(Controller controller, User user) {
         String itemName = inputView.readInput();
-        if(librarySection.checkOutItem(itemName)) {
+        if(librarySection.checkOutItem(itemName, user)) {
             System.out.println(successMessage);
         }
         else {

@@ -41,14 +41,6 @@ public class UserTest {
     }
 
     @Test
-    public void shouldRemoveABookFromBookList() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, UserRoles.ADMIN_ROLE);
-        assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
-        user.removeBook(new Book("Harry", "JK", 2001));
-        assertEquals(false, user.hasBook(new Book("Harry", "JK", 2001)));
-    }
-
-    @Test
     public void shouldReturnUserDetails() {
         String expected = "Ajay ajaygupta@yahoo.com 9999";
 

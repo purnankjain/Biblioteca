@@ -33,7 +33,7 @@ public class CheckOutViewTest {
     @Test
     public void shouldReturnNextView() {
         when(inputView.readInput()).thenReturn("");
-        when(librarySection.checkOutItem("")).thenReturn(true);
+        when(librarySection.checkOutItem("", user)).thenReturn(true);
         when(controller.nextViewAfterLogin(user)).thenReturn(librarianMenuView);
 
         assertEquals(LibrarianMenuView.class, checkOutView.renderView(controller, user).getClass());

@@ -1,6 +1,8 @@
 package com.twu.biblioteca.model;
 
 
+import com.twu.biblioteca.user.User;
+
 public class Movie implements Item{
     private String title;
     private int year;
@@ -22,5 +24,10 @@ public class Movie implements Item{
     @Override
     public String toString() {
         return String.format("%25s %6d %25s %10s", title, year, director, rating);
+    }
+
+    @Override
+    public void assignTo(User user) {
+
     }
 }
