@@ -1,19 +1,20 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.user.IUser;
 import com.twu.biblioteca.Controller;
+import com.twu.biblioteca.user.User;
 
 public class NullUserView implements IView {
 
-    Controller nextViewHandler;
+    String invalidCredentials;
 
-    public NullUserView(Controller nextViewHandler) {
-        this.nextViewHandler = nextViewHandler;
+    public NullUserView(String invalidCredentials) {
+        this.invalidCredentials = invalidCredentials;
+        invalidCredentials = "Invalid credentials";
     }
 
     @Override
-    public IView renderView(IUser user) {
-        System.out.println("Invalid credentials");
-        return nextViewHandler.nextViewOnInvalidCredentials();
+    public IView renderView(Controller controller, User user) {
+        System.out.println(invalidCredentials);
+        return controller.nextViewOnInvalidCredentials();
     }
 }

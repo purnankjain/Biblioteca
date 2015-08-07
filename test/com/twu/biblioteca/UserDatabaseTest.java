@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.user.IUser;
 import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.UserDatabase;
 import org.junit.Before;
@@ -14,14 +13,14 @@ import static org.mockito.Mockito.*;
 public class UserDatabaseTest {
 
     UserDatabase userDatabase;
-    ArrayList<IUser> users;
+    ArrayList<User> users;
     User user;
-    IUser loggedInUser;
+    User loggedInUser;
 
     @Before
     public void initialise() {
         user = mock(User.class);
-        users = new ArrayList<IUser>();
+        users = new ArrayList<User>();
         users.add(user);
         loggedInUser = mock(User.class);
         userDatabase = new UserDatabase(users, loggedInUser);

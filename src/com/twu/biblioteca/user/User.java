@@ -7,7 +7,7 @@ import com.twu.biblioteca.view.LoginView;
 
 import java.util.ArrayList;
 
-public class User implements IUser{
+public class User {
     private String libraryNumber;
     private String password;
     private String name;
@@ -27,21 +27,22 @@ public class User implements IUser{
         this.role = role;
     }
 
+    public User() {
+        role = UserRoles.NULL_USER;
+    }
+
     public boolean hasCredentials(String thatId, String thatPassword) {
         return (libraryNumber.equals(thatId) && password.equals(thatPassword));
     }
 
-    @Override
-    public IView nextViewAfterLogin(Controller nextViewHandler) {
-        return nextViewHandler.nextViewAfterLogin(this);
+    public IView nextViewAfterLogin(Controller controller) {
+        return controller.nextViewAfterLogin(this);
     }
 
-    @Override
-    public IView nextViewOnInvalidSelection(Controller nextViewHandler) {
-        return nextViewHandler.nextViewOnInvalidSelection(this);
+    public IView nextViewOnInvalidSelection(Controller controller) {
+        return controller.nextViewOnInvalidSelection(this);
     }
 
-    @Override
     public IView nextViewAfterLogin(LoginView loginView) {
         return null;
     }

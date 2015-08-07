@@ -1,78 +1,52 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.operations.CheckOutOperation;
-import com.twu.biblioteca.operations.ListOperation;
-import com.twu.biblioteca.operations.QuitOperation;
-import com.twu.biblioteca.operations.ReturnItemOperation;
-import com.twu.biblioteca.user.IUser;
-import com.twu.biblioteca.user.NullUser;
 import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.UserRoles;
 import com.twu.biblioteca.view.*;
 
+import java.util.HashMap;
+
 public class Controller {
-    InvalidOperationView invalidOperationView;
     LibrarianMenuView librarianMenuView;
-    ListAvailableItemsView listAvailableItemsView;
     LoginView loginView;
     NullUserView nullUserView;
-    ReturnView returnView;
     UserMenuView userMenuView;
-    CheckOutView checkOutView;
-    QuitView quitView;
+    WelcomeView welcomeView;
+    HashMap<String, IView> operationHashMap;
 
-    public Controller(InvalidOperationView invalidOperationView, LibrarianMenuView librarianMenuView,
-                      ListAvailableItemsView listAvailableItemsView, LoginView loginView, NullUserView nullUserView,
-                      ReturnView returnView, UserMenuView userMenuView, CheckOutView checkOutView,
-                      QuitView quitView) {
-        this.invalidOperationView = invalidOperationView;
+    public Controller(LibrarianMenuView librarianMenuView, LoginView loginView,
+                      NullUserView nullUserView, UserMenuView userMenuView,
+                      WelcomeView welcomeView, HashMap operationHashMap) {
         this.librarianMenuView = librarianMenuView;
-        this.listAvailableItemsView = listAvailableItemsView;
         this.loginView = loginView;
         this.nullUserView = nullUserView;
-        this.returnView = returnView;
         this.userMenuView = userMenuView;
-        this.checkOutView = checkOutView;
-        this.quitView = quitView;
+        this.welcomeView = welcomeView;
+        this.operationHashMap = operationHashMap;
     }
 
-    public IView nextViewAfterLogin(NullUser nullUser) {
-        return nullUserView;
+    public void foo(User user) {
+        IView iView = welcomeView;
+
+        while(true) {
+                iView = iView.renderView(this, user);
+        }
     }
 
-    public IView nextViewAfterLogin(IUser user) {
-        if(((User)user).hasRole(UserRoles.ADMIN_ROLE)) {
+    public IView nextViewAfterLogin(User user) {
+        if(user.hasRole(UserRoles.NULL_USER)) {
+            return nullUserView;
+        }
+        if(user.hasRole(UserRoles.ADMIN_ROLE)) {
             return librarianMenuView;
         }
         return userMenuView;
     }
 
-    public IView nextViewOnSelection(ListOperation listOperation) {
-        return listAvailableItemsView;
-    }
-
-    public IView nextViewOnSelection(CheckOutOperation checkOutOperation) {
-        return checkOutView ;
-    }
-
-
-    public IView nextViewOnSelection() {
-        return invalidOperationView;
-    }
-
-    public IView nextViewOnSelection(QuitOperation quitOperation) {
-        return quitView;
-    }
-
-    public IView nextViewOnSelection(ReturnItemOperation returnItemOperation) {
-        return returnView;
-    }
-
-    public IView nextViewOnInvalidSelection(NullUser nullUser) {
-        return loginView;
-    }
-
     public IView nextViewOnInvalidSelection(User user) {
+        if(user.hasRole(UserRoles.NULL_USER)) {
+            return loginView;
+        }
         if(user.hasRole(UserRoles.ADMIN_ROLE)) {
             return librarianMenuView;
         }
@@ -81,5 +55,14 @@ public class Controller {
 
     public IView nextViewOnInvalidCredentials() {
         return loginView;
+    }
+
+    public IView selectOperationView(String input, User user) {
+        try{
+            return operationHashMap.get(input);
+        }
+        catch (Exception e) {
+            return operationHashMap.get("");
+        }
     }
 }

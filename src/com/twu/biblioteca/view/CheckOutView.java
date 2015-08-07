@@ -1,16 +1,11 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.operations.Operation;
-import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.Controller;
+import com.twu.biblioteca.user.User;
 
-public class CheckOutView implements IView, IViewOperations {
+public class CheckOutView implements IView {
     @Override
-    public IView renderView(IUser user) {
-        return null;
-    }
-
-    @Override
-    public IView renderView(Operation operation) {
+    public IView renderView(Controller controller, User user) {
         return null;
     }
 }

@@ -6,9 +6,7 @@ import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.model.Item;
 import com.twu.biblioteca.model.Movie;
-import com.twu.biblioteca.parser.Parser;
-import com.twu.biblioteca.user.IUser;
-import com.twu.biblioteca.user.NullUser;
+import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.view.View;
 
 import java.io.BufferedReader;
@@ -33,9 +31,8 @@ public class BibliotecaApp {
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
         LibrarySection movieLibrarySection = new LibrarySection("Movie", movieList, new ArrayList<Item>());
         ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
-        Parser parser = new Parser(bookLibrarySection, movieLibrarySection, confirmationHandler);
-        IUser loggedInUser = new NullUser();
-        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, parser, loggedInUser);
+        User loggedInUser = new User();
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, loggedInUser);
         bibliotecaApplication.start();
     }
 }

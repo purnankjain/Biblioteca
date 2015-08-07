@@ -1,28 +1,21 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.user.IUser;
 import com.twu.biblioteca.Controller;
-import com.twu.biblioteca.operations.*;
-import com.twu.biblioteca.parser.Parser;
+import com.twu.biblioteca.user.User;
 
 public class LibrarianMenuView implements IView{
 
     InputView inputView;
-    Parser parser;
-    Controller nextViewHandler;
 
-    public LibrarianMenuView(InputView inputView, Parser parser, Controller nextViewHandler) {
+    public LibrarianMenuView(InputView inputView) {
         this.inputView = inputView;
-        this.parser = parser;
-        this.nextViewHandler = nextViewHandler;
     }
 
     @Override
-    public IView renderView(IUser user) {
+    public IView renderView(Controller controller, User user) {
         printLibrarianMenu();
         String input = inputView.readInput();
-        Operation operation = parser.selectOperation(input);
-        return operation.nextView(nextViewHandler, user);
+        return controller.selectOperationView(input, user);
     }
 
     private void printLibrarianMenu() {

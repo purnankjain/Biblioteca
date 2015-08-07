@@ -1,18 +1,12 @@
 package com.twu.biblioteca.view;
 
-import com.twu.biblioteca.operations.Operation;
-import com.twu.biblioteca.user.IUser;
+import com.twu.biblioteca.Controller;
+import com.twu.biblioteca.user.User;
 
-public class ListAvailableItemsView implements IView, IViewOperations {
-
-    @Override
-    public IView renderView(IUser user) {
-
-        return null;
-    }
+public class ListAvailableItemsView implements IView {
 
     @Override
-    public IView renderView(Operation operation) {
+    public IView renderView(Controller controller, User user) {
         return null;
     }
 }

@@ -1,5 +1,5 @@
 package com.twu.biblioteca.user;
 
 public enum UserRoles {
-    ADMIN_ROLE, NORMAL_USER
+    NULL_USER, ADMIN_ROLE, NORMAL_USER
 }

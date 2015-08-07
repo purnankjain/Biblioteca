@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import com.twu.biblioteca.parser.Parser;
 import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.UserDatabase;
 import com.twu.biblioteca.user.UserRoles;
@@ -21,31 +20,26 @@ public class LoginViewTest {
     UserMenuView userMenuView;
     NullUserView nullUserView;
     User mockUser;
-    ListAvailableItemsView listAvailableItemsView;
-    CheckOutView checkOutView;
-    ReturnView returnView;
-    InvalidOperationView invalidOperationView;
-    Parser parser;
-    Controller nextViewHandler;
+    Controller controller;
 
     @Before
     public void initialise() {
         inputView = mock(InputView.class);
         userDatabase = mock(UserDatabase.class);
-        librarianMenuView = new LibrarianMenuView(inputView, parser, nextViewHandler);
+        librarianMenuView = new LibrarianMenuView(inputView);
         userMenuView = mock(UserMenuView.class);
         mockUser = new User("", "", "", "", "", null, UserRoles.ADMIN_ROLE);
         nullUserView = mock(NullUserView.class);
-        nextViewHandler = mock(Controller.class);
-        loginView = new LoginView(inputView, userDatabase, nextViewHandler);
+        controller = mock(Controller.class);
+        loginView = new LoginView(inputView, userDatabase);
     }
 
     @Test
     public void shouldReturnAnIView() {
         when(inputView.readInput()).thenReturn("asd").thenReturn("asd");
         when(userDatabase.login("asd", "asd")).thenReturn(mockUser);
-        when(nextViewHandler.nextViewAfterLogin(mockUser)).thenReturn(librarianMenuView);
+        when(controller.nextViewAfterLogin(mockUser)).thenReturn(librarianMenuView);
 
-        assertEquals(LibrarianMenuView.class, loginView.renderView(mockUser).getClass());
+        assertEquals(LibrarianMenuView.class, loginView.renderView(controller, mockUser).getClass());
     }
 }

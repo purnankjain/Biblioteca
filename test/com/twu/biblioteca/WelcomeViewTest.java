@@ -16,20 +16,20 @@ public class WelcomeViewTest {
     User user;
     InputView inputView;
     UserDatabase userDatabase;
-    Controller nextViewHandler;
+    Controller controller;
 
     @Before
     public void initialise() {
-        nextViewHandler = mock(Controller.class);
+        controller = mock(Controller.class);
         userDatabase = mock(UserDatabase.class);
-        loginView = new LoginView(inputView, userDatabase, nextViewHandler);
+        loginView = new LoginView(inputView, userDatabase);
         welcomeView = new WelcomeView(loginView);
         user = mock(User.class);
     }
 
     @Test
     public void shouldReturnLoginView() {
-        assertEquals(LoginView.class, welcomeView.renderView(user).getClass());
+        assertEquals(LoginView.class, welcomeView.renderView(controller, user).getClass());
     }
 
 }
