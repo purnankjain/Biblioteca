@@ -16,7 +16,7 @@ public class Book implements Item{
 
     @Override
     public boolean isTitled(String nameToCheck) {
-        return (name.equals(nameToCheck));
+        return (name.toLowerCase().equals(nameToCheck));
     }
 
     @Override

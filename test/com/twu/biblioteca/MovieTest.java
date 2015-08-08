@@ -11,7 +11,7 @@ public class MovieTest {
     public void shouldKnowItsTitle() {
         Movie movie = new Movie("Name", 2011, "Director", "1");
 
-        assertEquals(true, movie.isTitled("Name"));
+        assertEquals(true, movie.isTitled("name"));
     }
 
     @Test

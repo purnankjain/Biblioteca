@@ -35,7 +35,7 @@ public class Controller {
         IView iView = welcomeView;
 
         while(true) {
-                iView = iView.renderView(this, loggedInUser);
+            iView = iView.renderView(this, loggedInUser);
         }
     }
 
@@ -67,10 +67,9 @@ public class Controller {
     public IView selectOperationView(String input) {
         if(loggedInUser.hasRole(UserRoles.ADMIN_ROLE)) {
             if(adminOperationHashMap.containsKey(input)) {
-                return operationHashMap.get(input);
+                return adminOperationHashMap.get(input);
             }
         }
-        System.out.println("Key : " + input);
         if(operationHashMap.containsKey(input)) {
             return operationHashMap.get(input);
         }

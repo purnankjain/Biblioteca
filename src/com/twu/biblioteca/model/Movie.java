@@ -18,7 +18,7 @@ public class Movie implements Item{
 
     @Override
     public boolean isTitled(String toCheck) {
-        return title.equals(toCheck);
+        return title.toLowerCase().equals(toCheck);
     }
 
     @Override

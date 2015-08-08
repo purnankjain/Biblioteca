@@ -54,11 +54,13 @@ public class LibrarySectionTest {
     public void shouldReturnListOfAllCheckedOutItems() {
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
-        librarySection = new LibrarySection(new ArrayList<Item>(), movieList, null);
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put(movieList.get(0).toString(), "Jim");
+        librarySection = new LibrarySection(new ArrayList<Item>(), movieList, hm);
         ArrayList<String> expectedMovies = new ArrayList<>();
-        expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
+        expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3") + "  Owner : " + "Jim");
 
-        assertEquals(expectedMovies, librarySection.getAllCheckedOutItems());
+        assertEquals(expectedMovies, librarySection.getAllCheckedOutItemsWithOwnerDetails());
     }
 
     @Test

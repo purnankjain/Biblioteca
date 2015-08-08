@@ -12,6 +12,6 @@ public class BookTest {
     public void shouldKnowIfItIsASpecificBook() {
         Book book = new Book("Harry Potter", "J.K. Rowling", 1998);
 
-        assertEquals(true, book.isTitled("Harry Potter"));
+        assertEquals(true, book.isTitled("harry potter"));
     }
 }

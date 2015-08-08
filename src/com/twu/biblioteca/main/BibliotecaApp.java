@@ -72,8 +72,8 @@ public class BibliotecaApp {
         operationHashMap.put(" ", new InvalidOperationView());
 
         HashMap<String, IView> adminOperationMap = new HashMap<>();
-        adminOperationMap.put("list checkedout books", new ListUnavailableItemsView(bookLibrarySection));
-        adminOperationMap.put("list checkedout movied", new ListUnavailableItemsView(movieLibrarySection));
+        adminOperationMap.put("list checkedout books", new ListUnavailableItemsView(bookLibrarySection, "CheckedOut Books"));
+        adminOperationMap.put("list checkedout movies", new ListUnavailableItemsView(movieLibrarySection, "CheckedOut Movies"));
 
         Controller controller = new Controller(librarianMenuView, loginView, nullUserView, userMenuView,
                 welcomeView, operationHashMap, adminOperationMap, loggedInUser);

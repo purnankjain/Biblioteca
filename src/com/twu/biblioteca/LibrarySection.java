@@ -26,10 +26,10 @@ public class LibrarySection {
         return tempList;
     }
 
-    public ArrayList<String> getAllCheckedOutItems() {
+    public ArrayList<String> getAllCheckedOutItemsWithOwnerDetails() {
         ArrayList<String> tempList = new ArrayList<String>();
         for(Item item : unAvailableItems) {
-            tempList.add(item.toString());
+            tempList.add(item.toString() + "  Owner : " + itemOwner.get(item.toString()));
         }
         return tempList;
     }
