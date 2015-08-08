@@ -4,15 +4,18 @@ import com.twu.biblioteca.model.Item;
 import com.twu.biblioteca.user.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class LibrarySection {
     private ArrayList<Item> availableItems;
     private ArrayList<Item> unAvailableItems;
+    private HashMap<String, String> itemOwner;
 
-    public LibrarySection(ArrayList<Item> availableItems, ArrayList<Item> unAvailableItems) {
+    public LibrarySection(ArrayList<Item> availableItems, ArrayList<Item> unAvailableItems, HashMap<String, String> itemOwner) {
         this.availableItems = availableItems;
         this.unAvailableItems = unAvailableItems;
+        this.itemOwner = itemOwner;
     }
 
     public ArrayList<String> getAllAvailableItems() {
@@ -36,16 +39,22 @@ public class LibrarySection {
             if(item.isTitled(thatItem)) {
                 swapItem(item, availableItems, unAvailableItems);
                 item.assignTo(user);
+                addToCheckOuter(user, item);
                 return true;
             }
         }
         return false;
     }
 
-    public boolean returnThisItem(String item) {
-        for(Item item1 : unAvailableItems) {
-            if(item1.isTitled(item)) {
-                swapItem(item1, unAvailableItems, availableItems);
+    private void addToCheckOuter(User user, Item item) {
+        itemOwner.put(item.toString(), user.toString());
+    }
+
+    public boolean returnThisItem(String thatItem, User user) {
+        for(Item item : unAvailableItems) {
+            if(item.isTitled(thatItem)) {
+                swapItem(item, unAvailableItems, availableItems);
+                item.recoverFrom(user);
                 return true;
             }
         }

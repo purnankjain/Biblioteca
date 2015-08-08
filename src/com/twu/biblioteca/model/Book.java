@@ -30,6 +30,11 @@ public class Book implements Item{
     }
 
     @Override
+    public void recoverFrom(User user) {
+        user.removeFromUserBookList(this);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

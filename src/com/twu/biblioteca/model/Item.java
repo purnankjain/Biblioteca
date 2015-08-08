@@ -7,4 +7,5 @@ public interface Item {
     boolean isTitled(String toCheck);
     String toString();
     void assignTo(User user);
+    void recoverFrom(User user);
 }

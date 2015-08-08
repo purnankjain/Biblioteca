@@ -35,6 +35,14 @@ public class UserTest {
     }
 
     @Test
+    public void shouldRemoveFromList() {
+        user = new User("", "", "", "", "", books, null);
+        user.removeFromUserBookList(new Book("Harry", "JK", 2001));
+        books.remove(new Book("Harry", "JK", 2001));
+        assertEquals(books, user.getAllBooks());
+    }
+
+    @Test
     public void checkWhetherUserHasBookOrNot() {
         user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, UserRoles.NORMAL_USER);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));

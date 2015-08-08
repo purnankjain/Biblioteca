@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -27,7 +28,7 @@ public class LibrarySectionTest {
         book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>(), null);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class LibrarySectionTest {
     public void shouldReturnListOfAllAvailableBooks() {
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
-        librarySection = new LibrarySection(movieList, new ArrayList<Item>());
+        librarySection = new LibrarySection(movieList, new ArrayList<Item>(), null);
         ArrayList<String> expectedMovies = new ArrayList<>();
         expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
 
@@ -54,7 +55,7 @@ public class LibrarySectionTest {
     public void shouldReturnListOfAllCheckedOutItems() {
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
-        librarySection = new LibrarySection(new ArrayList<Item>(), movieList);
+        librarySection = new LibrarySection(new ArrayList<Item>(), movieList, null);
         ArrayList<String> expectedMovies = new ArrayList<>();
         expectedMovies.add(String.format("%25s %6d %25s %10s", "Harry", 2001, "yap", "3"));
 
@@ -66,11 +67,16 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
+        HashMap<String, String> hm = new HashMap<>();
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>(), hm);
+        User user = mock(User.class);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
+        when(user.toString()).thenReturn("");
+        when(mockBook.toString()).thenReturn("");
 
-        assertEquals(true, librarySection.checkOutItem("Hello", new User()));
+
+        assertEquals(true, librarySection.checkOutItem("Hello", user));
     }
 
     @Test
@@ -78,7 +84,7 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>(), null);
 
         when(mockBook.isTitled("Hello")).thenReturn(false);
 
@@ -90,11 +96,12 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection(new ArrayList<Item>(), bookList);
+        librarySection = new LibrarySection(new ArrayList<Item>(), bookList, null);
+        User user = mock(User.class);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
-        assertEquals(true, librarySection.returnThisItem("Hello"));
+        assertEquals(true, librarySection.returnThisItem("Hello", user));
     }
 
     @Test
@@ -102,10 +109,11 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection(bookList, new ArrayList<Item>());
+        librarySection = new LibrarySection(bookList, new ArrayList<Item>(), null);
+        User user = mock(User.class);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
 
-        assertEquals(false, librarySection.returnThisItem("Hello"));
+        assertEquals(false, librarySection.returnThisItem("Hello", user));
     }
 }

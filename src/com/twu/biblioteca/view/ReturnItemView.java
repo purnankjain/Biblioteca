@@ -21,7 +21,7 @@ public class ReturnItemView implements IView {
     @Override
     public IView renderView(Controller controller, User user) {
         String itemName = inputView.readInput();
-        if(librarySection.returnThisItem(itemName)) {
+        if(librarySection.returnThisItem(itemName, user)) {
             System.out.println(successMessage);
         }
         else {

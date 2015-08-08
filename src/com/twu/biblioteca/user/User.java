@@ -12,17 +12,17 @@ public class User {
     private String name;
     private String email;
     private String phoneNumber;
-    private ArrayList<Book> books;
+    private ArrayList<Book> checkedOutBooks;
     private UserRoles role;
 
     public User(String libraryNumber, String password, String name, String email, String phoneNumber,
-                ArrayList<Book> books, UserRoles role) {
+                ArrayList<Book> checkedOutBooks, UserRoles role) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.books = books;
+        this.checkedOutBooks = checkedOutBooks;
         this.role = role;
     }
 
@@ -43,15 +43,15 @@ public class User {
     }
 
     public void addBookToUserBookList(Book book) {
-        books.add(book);
+        checkedOutBooks.add(book);
     }
     
     public ArrayList<Book> getAllBooks() {
-        return books;
+        return checkedOutBooks;
     }
 
     public boolean hasBook(Book book) {
-        for(Book thisBook : books) {
+        for(Book thisBook : checkedOutBooks) {
             if(thisBook.equals(book)) {
                 return true;
             }
@@ -76,7 +76,7 @@ public class User {
         if (name != null ? !name.equals(user.name) : user.name != null) return false;
         if (email != null ? !email.equals(user.email) : user.email != null) return false;
         if (phoneNumber != null ? !phoneNumber.equals(user.phoneNumber) : user.phoneNumber != null) return false;
-        return !(books != null ? !books.equals(user.books) : user.books != null);
+        return !(checkedOutBooks != null ? !checkedOutBooks.equals(user.checkedOutBooks) : user.checkedOutBooks != null);
 
     }
 
@@ -87,12 +87,16 @@ public class User {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (phoneNumber != null ? phoneNumber.hashCode() : 0);
-        result = 31 * result + (books != null ? books.hashCode() : 0);
+        result = 31 * result + (checkedOutBooks != null ? checkedOutBooks.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return name + " " + email + " " + phoneNumber;
+    }
+
+    public void removeFromUserBookList(Book book) {
+        checkedOutBooks.remove(book);
     }
 }

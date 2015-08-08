@@ -30,4 +30,9 @@ public class Movie implements Item{
     public void assignTo(User user) {
 
     }
+
+    @Override
+    public void recoverFrom(User user) {
+
+    }
 }
