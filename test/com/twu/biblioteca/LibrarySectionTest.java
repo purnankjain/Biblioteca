@@ -6,7 +6,6 @@ import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.user.User;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -74,7 +73,6 @@ public class LibrarySectionTest {
         when(mockBook.isTitled("Hello")).thenReturn(true);
         when(user.toString()).thenReturn("");
         when(mockBook.toString()).thenReturn("");
-
 
         assertEquals(true, librarySection.checkOutItem("Hello", user));
     }

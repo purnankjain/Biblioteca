@@ -32,7 +32,7 @@ public class ListAvailableItemsViewTest {
     @Test
     public void shouldReturnTheNextView() {
         when(librarySection.getAllAvailableItems()).thenReturn(new ArrayList<String>());
-        when(controller.nextViewAfterLogin(user)).thenReturn(librarianMenuView);
+        when(controller.menuView(user)).thenReturn(librarianMenuView);
 
         assertEquals(LibrarianMenuView.class, listAvailableItemsView.renderView(controller, user).getClass());
     }

@@ -27,6 +27,6 @@ public class CheckOutView implements IView {
         else {
             System.out.println(unsuccessfulMessage);
         }
-        return controller.nextViewAfterLogin(user);
+        return controller.menuView(user);
     }
 }

@@ -20,6 +20,6 @@ public class ListAvailableItemsView implements IView {
         for(String str : list) {
             System.out.println(str);
         }
-        return controller.nextViewAfterLogin(user);
+        return controller.menuView(user);
     }
 }

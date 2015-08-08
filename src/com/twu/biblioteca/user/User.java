@@ -34,8 +34,8 @@ public class User {
         return (libraryNumber.equals(thatId) && password.equals(thatPassword));
     }
 
-    public IView nextViewAfterLogin(Controller controller) {
-        return controller.nextViewAfterLogin(this);
+    public IView menuView(Controller controller) {
+        return controller.menuView(this);
     }
 
     public IView nextViewOnInvalidSelection(Controller controller) {

@@ -12,7 +12,7 @@ public class InputView {
 
     public String readInput() {
         try {
-            return bufferedReader.readLine();
+            return bufferedReader.readLine().toLowerCase();
         }
         catch(Exception e) {
 

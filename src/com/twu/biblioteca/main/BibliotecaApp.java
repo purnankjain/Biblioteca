@@ -57,6 +57,7 @@ public class BibliotecaApp {
         operationHashMap.put("CheckOut Movie", new CheckOutView(movieLibrarySection, inputView, "CheckOut Movie Successful", "CheckOut Unsuccessful"));
         operationHashMap.put("Return Book", new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "CheckOut Unsuccessful"));
         operationHashMap.put("Return Movie", new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "CheckOut Unsuccessful"));
+        operationHashMap.put("My Profile", new ListUserDetails("User Details : "));
         operationHashMap.put("Logout", logOutView);
         operationHashMap.put("Quit", new QuitView());
         operationHashMap.put(" ", new InvalidOperationView());

@@ -38,7 +38,7 @@ public class LoginViewTest {
     public void shouldReturnAnIView() {
         when(inputView.readInput()).thenReturn("asd").thenReturn("asd");
         when(userDatabase.login("asd", "asd")).thenReturn(mockUser);
-        when(controller.nextViewAfterLogin(mockUser)).thenReturn(librarianMenuView);
+        when(controller.menuView(mockUser)).thenReturn(librarianMenuView);
 
         assertEquals(LibrarianMenuView.class, loginView.renderView(controller, mockUser).getClass());
     }

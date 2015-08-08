@@ -28,11 +28,11 @@ public class ControllerTest {
     public void shouldReturnNullUserView() {
         User nullUser = new User();
         controller = new Controller(librarianMenuView, null, nullUserView, null, null, null, nullUser);
-        assertEquals(NullUserView.class, controller.nextViewAfterLogin(nullUser).getClass());
+        assertEquals(NullUserView.class, controller.menuView(nullUser).getClass());
     }
 
     @Test
     public void shouldReturnLibrarianMenuView() {
-        assertEquals(LibrarianMenuView.class, controller.nextViewAfterLogin(user).getClass());
+        assertEquals(LibrarianMenuView.class, controller.menuView(user).getClass());
     }
 }

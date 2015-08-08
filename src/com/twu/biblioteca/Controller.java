@@ -36,7 +36,7 @@ public class Controller {
         }
     }
 
-    public IView nextViewAfterLogin(User user) {
+    public IView menuView(User user) {
         this.loggedInUser = user;
         if(loggedInUser.hasRole(UserRoles.NULL_USER)) {
             return nullUserView;
