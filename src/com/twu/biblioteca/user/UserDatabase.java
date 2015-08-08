@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 public class UserDatabase {
     ArrayList<User> users;
+    User nullUser;
 
-    public UserDatabase(ArrayList<User> users) {
+    public UserDatabase(ArrayList<User> users, User nullUser) {
         this.users = users;
+        this.nullUser = nullUser;
     }
 
     public boolean checkCredentials(String libraryNumber, String password) {
@@ -23,6 +25,10 @@ public class UserDatabase {
                 return user;
             }
         }
-        return new User("", "", "", "", "", null, UserRoles.NULL_USER);
+        return nullUser;
+    }
+
+    public User logout() {
+        return nullUser;
     }
 }

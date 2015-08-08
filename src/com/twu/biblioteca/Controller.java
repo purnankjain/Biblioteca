@@ -17,7 +17,7 @@ public class Controller {
 
     public Controller(LibrarianMenuView librarianMenuView, LoginView loginView,
                       NullUserView nullUserView, UserMenuView userMenuView,
-                      WelcomeView welcomeView, HashMap operationHashMap,
+                      WelcomeView welcomeView, HashMap<String, IView> operationHashMap,
                       User loggedInUser) {
         this.librarianMenuView = librarianMenuView;
         this.loginView = loginView;
@@ -74,5 +74,9 @@ public class Controller {
         catch (Exception e) {
             return operationHashMap.get(" ");
         }
+    }
+
+    public IView nextViewAfterLogOut() {
+        return loginView;
     }
 }
