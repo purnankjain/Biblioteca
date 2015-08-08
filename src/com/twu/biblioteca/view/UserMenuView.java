@@ -15,11 +15,11 @@ public class UserMenuView implements IView {
     public IView renderView(Controller controller, User user) {
         printUserMenu();
         String input = inputView.readInput();
-        return controller.selectOperationView(input, user);
+        return controller.selectOperationView(input);
     }
 
     private void printUserMenu() {
-        System.out.println("=======================");
+        System.out.println("==========USER=============");
         System.out.println("List Books");
         System.out.println("List Movies");
         System.out.println("CheckOut Book");

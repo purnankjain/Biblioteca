@@ -13,41 +13,45 @@ public class Controller {
     UserMenuView userMenuView;
     WelcomeView welcomeView;
     HashMap<String, IView> operationHashMap;
+    User loggedInUser;
 
     public Controller(LibrarianMenuView librarianMenuView, LoginView loginView,
                       NullUserView nullUserView, UserMenuView userMenuView,
-                      WelcomeView welcomeView, HashMap operationHashMap) {
+                      WelcomeView welcomeView, HashMap operationHashMap,
+                      User loggedInUser) {
         this.librarianMenuView = librarianMenuView;
         this.loginView = loginView;
         this.nullUserView = nullUserView;
         this.userMenuView = userMenuView;
         this.welcomeView = welcomeView;
         this.operationHashMap = operationHashMap;
+        this.loggedInUser = loggedInUser;
     }
 
-    public void foo(User user) {
+    public void execute() {
         IView iView = welcomeView;
 
         while(true) {
-                iView = iView.renderView(this, user);
+                iView = iView.renderView(this, loggedInUser);
         }
     }
 
     public IView nextViewAfterLogin(User user) {
-        if(user.hasRole(UserRoles.NULL_USER)) {
+        this.loggedInUser = user;
+        if(loggedInUser.hasRole(UserRoles.NULL_USER)) {
             return nullUserView;
         }
-        if(user.hasRole(UserRoles.ADMIN_ROLE)) {
+        if(loggedInUser.hasRole(UserRoles.ADMIN_ROLE)) {
             return librarianMenuView;
         }
         return userMenuView;
     }
 
-    public IView nextViewOnInvalidSelection(User user) {
-        if(user.hasRole(UserRoles.NULL_USER)) {
+    public IView nextViewOnInvalidSelection() {
+        if(loggedInUser.hasRole(UserRoles.NULL_USER)) {
             return loginView;
         }
-        if(user.hasRole(UserRoles.ADMIN_ROLE)) {
+        if(loggedInUser.hasRole(UserRoles.ADMIN_ROLE)) {
             return librarianMenuView;
         }
         return userMenuView;
@@ -57,12 +61,18 @@ public class Controller {
         return loginView;
     }
 
-    public IView selectOperationView(String input, User user) {
+    public IView selectOperationView(String input) {
         try{
-            return operationHashMap.get(input);
+            IView view;
+            if(operationHashMap.containsKey(input))
+                view = operationHashMap.get(input);
+            else
+                view = operationHashMap.get(" ");
+
+            return view;
         }
         catch (Exception e) {
-            return operationHashMap.get("");
+            return operationHashMap.get(" ");
         }
     }
 }

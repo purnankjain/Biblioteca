@@ -4,11 +4,9 @@ import java.util.ArrayList;
 
 public class UserDatabase {
     ArrayList<User> users;
-    User loggedInUser;
 
-    public UserDatabase(ArrayList<User> users, User loggedInUser) {
+    public UserDatabase(ArrayList<User> users) {
         this.users = users;
-        this.loggedInUser = loggedInUser;
     }
 
     public boolean checkCredentials(String libraryNumber, String password) {
@@ -22,7 +20,6 @@ public class UserDatabase {
     public User login(String libraryNumber, String password) {
         for(User user : users) {
             if(user.hasCredentials(libraryNumber, password)) {
-                loggedInUser = user;
                 return user;
             }
         }

@@ -5,11 +5,11 @@ import com.twu.biblioteca.user.User;
 
 public class InvalidOperationView implements IView {
 
-    Controller nextViewHandler;
+    String invalidMessage = "Invalid selection";
 
     @Override
     public IView renderView(Controller controller, User user) {
-        System.out.println("Invalid selection");
-        return user.nextViewOnInvalidSelection(nextViewHandler);
+        System.out.println(invalidMessage);
+        return user.nextViewOnInvalidSelection(controller);
     }
 }

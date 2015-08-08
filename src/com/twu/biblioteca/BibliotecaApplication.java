@@ -7,18 +7,15 @@ import com.twu.biblioteca.view.View;
 public class BibliotecaApplication {
     View view;
     User loggedInUser;
+    Controller controller;
 
-    public BibliotecaApplication(View view, User loggedInUser) {
+    public BibliotecaApplication(View view, User loggedInUser, Controller controller) {
         this.view = view;
         this.loggedInUser = loggedInUser;
+        this.controller = controller;
     }
 
     public void start() {
-        view.greetUser();
-        String input;
-        while(true) {
-            view.printMenu();
-            input = view.readUserInput();
-        }
+        controller.execute();
     }
 }

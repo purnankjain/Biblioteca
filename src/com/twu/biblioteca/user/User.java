@@ -3,7 +3,6 @@ package com.twu.biblioteca.user;
 import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.model.Book;
 import com.twu.biblioteca.view.IView;
-import com.twu.biblioteca.view.LoginView;
 
 import java.util.ArrayList;
 
@@ -40,11 +39,7 @@ public class User {
     }
 
     public IView nextViewOnInvalidSelection(Controller controller) {
-        return controller.nextViewOnInvalidSelection(this);
-    }
-
-    public IView nextViewAfterLogin(LoginView loginView) {
-        return null;
+        return controller.nextViewOnInvalidSelection();
     }
 
     public void addBookToUserBookList(Book book) {

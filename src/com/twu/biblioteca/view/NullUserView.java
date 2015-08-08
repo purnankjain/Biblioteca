@@ -9,7 +9,7 @@ public class NullUserView implements IView {
 
     public NullUserView(String invalidCredentials) {
         this.invalidCredentials = invalidCredentials;
-        invalidCredentials = "Invalid credentials";
+        this.invalidCredentials = "Invalid credentials";
     }
 
     @Override

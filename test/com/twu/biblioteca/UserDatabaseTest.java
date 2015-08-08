@@ -23,7 +23,7 @@ public class UserDatabaseTest {
         users = new ArrayList<User>();
         users.add(user);
         loggedInUser = mock(User.class);
-        userDatabase = new UserDatabase(users, loggedInUser);
+        userDatabase = new UserDatabase(users);
     }
 
     @Test

@@ -34,7 +34,7 @@ public class LibrarianMenuViewTest {
     @Test
     public void shouldReturnViewAccordingToOperationSelected() {
         when(inputView.readInput()).thenReturn("List Books");
-        when(controller.selectOperationView("List Books", user)).thenReturn(listAvailableItemsView);
+        when(controller.selectOperationView("List Books")).thenReturn(listAvailableItemsView);
 
         assertEquals(ListAvailableItemsView.class, librarianMenuView.renderView(controller, user).getClass());
     }

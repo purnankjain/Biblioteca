@@ -30,7 +30,7 @@ public class UserMenuViewTest {
     @Test
     public void shouldReturnNextView() {
         when(inputView.readInput()).thenReturn("List Books");
-        when(controller.selectOperationView("List Books", user)).thenReturn(listAvailableItemsView);
+        when(controller.selectOperationView("List Books")).thenReturn(listAvailableItemsView);
 
         assertEquals(ListAvailableItemsView.class, userMenuView.renderView(controller, user).getClass());
     }

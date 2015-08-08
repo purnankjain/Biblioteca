@@ -15,11 +15,11 @@ public class LibrarianMenuView implements IView{
     public IView renderView(Controller controller, User user) {
         printLibrarianMenu();
         String input = inputView.readInput();
-        return controller.selectOperationView(input, user);
+        return controller.selectOperationView(input);
     }
 
     private void printLibrarianMenu() {
-        System.out.println("=======================");
+        System.out.println("=========LIB==============");
         System.out.println("List Books");
         System.out.println("List Movies");
         System.out.println("List CheckedOut Books");
