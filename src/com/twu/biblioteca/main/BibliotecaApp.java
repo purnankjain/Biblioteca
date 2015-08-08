@@ -29,18 +29,23 @@ public class BibliotecaApp {
         Book book2 = new Book("Harry Potter", "J.K Rowling", 2005);
         bookList.add(book1);
         bookList.add(book2);
-        LibrarySection bookLibrarySection = new LibrarySection(bookList, new ArrayList<Item>(), new HashMap<String, String>());
+        LibrarySection bookLibrarySection =
+                new LibrarySection(bookList, new ArrayList<Item>(), new HashMap<String, String>());
         ArrayList<Item> movieList = new ArrayList<>();
         movieList.add(new Movie("Harry", 2001, "yap", "3"));
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
-        LibrarySection movieLibrarySection = new LibrarySection(movieList, new ArrayList<Item>(), new HashMap<String, String>());
+        LibrarySection movieLibrarySection =
+                new LibrarySection(movieList, new ArrayList<Item>(), new HashMap<String, String>());
         ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
         User loggedInUser = new User();
 
         ArrayList<User> registeredUser = new ArrayList<>();
-        registeredUser.add(new User("111-1111", "asd", "Ram", "ram@mail.com", "9999", new ArrayList<Book>(), UserRoles.ADMIN_ROLE));
-        registeredUser.add(new User("111-1112", "asd", "Sham", "Shyaam@mail.com", "9999", new ArrayList<Book>(), UserRoles.NORMAL_USER));
-        registeredUser.add(new User("111-1113", "asd", "kaam", "kaam@mail.com", "9999", new ArrayList<Book>(), UserRoles.NORMAL_USER));
+        registeredUser.add(new User("111-1111", "asd", "Ram", "ram@mail.com", "9999",
+                new ArrayList<Book>(), UserRoles.ADMIN_ROLE));
+        registeredUser.add(new User("111-1112", "asd", "Sham", "Shyaam@mail.com", "9999",
+                new ArrayList<Book>(), UserRoles.NORMAL_USER));
+        registeredUser.add(new User("111-1113", "asd", "kaam", "kaam@mail.com", "9999",
+                new ArrayList<Book>(), UserRoles.NORMAL_USER));
         InputView inputView = new InputView(bufferedReader);
         User nullUser = new User("", "", "", "", "", null, UserRoles.NULL_USER);
         UserDatabase userDatabase = new UserDatabase(registeredUser, nullUser);
@@ -51,18 +56,27 @@ public class BibliotecaApp {
         WelcomeView welcomeView = new WelcomeView(loginView);
         LogOutView logOutView = new LogOutView(userDatabase);
         HashMap<String, IView> operationHashMap = new HashMap<>();
-        operationHashMap.put("List Books", new ListAvailableItemsView(bookLibrarySection));
-        operationHashMap.put("List Movies", new ListAvailableItemsView(movieLibrarySection));
-        operationHashMap.put("CheckOut Book", new CheckOutView(bookLibrarySection, inputView, "CheckOut Book Successful", "CheckOut Unsuccessful"));
-        operationHashMap.put("CheckOut Movie", new CheckOutView(movieLibrarySection, inputView, "CheckOut Movie Successful", "CheckOut Unsuccessful"));
-        operationHashMap.put("Return Book", new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "CheckOut Unsuccessful"));
-        operationHashMap.put("Return Movie", new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "CheckOut Unsuccessful"));
-        operationHashMap.put("My Profile", new ListUserDetails("User Details : "));
-        operationHashMap.put("Logout", logOutView);
-        operationHashMap.put("Quit", new QuitView());
+        operationHashMap.put("list books", new ListAvailableItemsView(bookLibrarySection));
+        operationHashMap.put("list movies", new ListAvailableItemsView(movieLibrarySection));
+        operationHashMap.put("checkout book",
+                new CheckOutView(bookLibrarySection, inputView, "CheckOut Book Successful", "CheckOut Unsuccessful"));
+        operationHashMap.put("checkout movie",
+                new CheckOutView(movieLibrarySection, inputView, "CheckOut Movie Successful", "CheckOut Unsuccessful"));
+        operationHashMap.put("return book",
+                new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "CheckOut Unsuccessful"));
+        operationHashMap.put("return movie",
+                new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "CheckOut Unsuccessful"));
+        operationHashMap.put("my profile", new ListUserDetails("User Details : "));
+        operationHashMap.put("logout", logOutView);
+        operationHashMap.put("quit", new QuitView());
         operationHashMap.put(" ", new InvalidOperationView());
 
-        Controller controller = new Controller(librarianMenuView, loginView, nullUserView, userMenuView, welcomeView, operationHashMap, loggedInUser);
+        HashMap<String, IView> adminOperationMap = new HashMap<>();
+        adminOperationMap.put("list checkedout books", new ListUnavailableItemsView(bookLibrarySection));
+        adminOperationMap.put("list checkedout movied", new ListUnavailableItemsView(movieLibrarySection));
+
+        Controller controller = new Controller(librarianMenuView, loginView, nullUserView, userMenuView,
+                welcomeView, operationHashMap, adminOperationMap, loggedInUser);
 
         BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, loggedInUser, controller);
         bibliotecaApplication.start();

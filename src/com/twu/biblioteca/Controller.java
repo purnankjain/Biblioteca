@@ -13,11 +13,13 @@ public class Controller {
     UserMenuView userMenuView;
     WelcomeView welcomeView;
     HashMap<String, IView> operationHashMap;
+    HashMap<String, IView> adminOperationHashMap;
     User loggedInUser;
 
     public Controller(LibrarianMenuView librarianMenuView, LoginView loginView,
                       NullUserView nullUserView, UserMenuView userMenuView,
                       WelcomeView welcomeView, HashMap<String, IView> operationHashMap,
+                      HashMap<String, IView> adminOperationHashMap,
                       User loggedInUser) {
         this.librarianMenuView = librarianMenuView;
         this.loginView = loginView;
@@ -25,6 +27,7 @@ public class Controller {
         this.userMenuView = userMenuView;
         this.welcomeView = welcomeView;
         this.operationHashMap = operationHashMap;
+        this.adminOperationHashMap = adminOperationHashMap;
         this.loggedInUser = loggedInUser;
     }
 
@@ -62,18 +65,16 @@ public class Controller {
     }
 
     public IView selectOperationView(String input) {
-        try{
-            IView view;
-            if(operationHashMap.containsKey(input))
-                view = operationHashMap.get(input);
-            else
-                view = operationHashMap.get(" ");
-
-            return view;
+        if(loggedInUser.hasRole(UserRoles.ADMIN_ROLE)) {
+            if(adminOperationHashMap.containsKey(input)) {
+                return operationHashMap.get(input);
+            }
         }
-        catch (Exception e) {
-            return operationHashMap.get(" ");
+        System.out.println("Key : " + input);
+        if(operationHashMap.containsKey(input)) {
+            return operationHashMap.get(input);
         }
+        return operationHashMap.get(" ");
     }
 
     public IView nextViewAfterLogOut() {
