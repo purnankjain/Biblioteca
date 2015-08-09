@@ -39,26 +39,33 @@ public class LibrarySection {
             if(item.isTitled(thatItem)) {
                 swapItem(item, availableItems, unAvailableItems);
                 item.assignTo(user);
-                addToCheckOuter(user, item);
+                addToItemOwner(user, item);
                 return true;
             }
         }
         return false;
     }
 
-    private void addToCheckOuter(User user, Item item) {
+    private void addToItemOwner(User user, Item item) {
         itemOwner.put(item.toString(), user.toString());
     }
 
     public boolean returnThisItem(String thatItem, User user) {
         for(Item item : unAvailableItems) {
             if(item.isTitled(thatItem)) {
-                swapItem(item, unAvailableItems, availableItems);
-                item.recoverFrom(user);
-                return true;
+                if(item.isWithUser(user)) {
+                    swapItem(item, unAvailableItems, availableItems);
+                    item.recoverFrom(user);
+                    removeFromItemOwner(item);
+                    return true;
+                }
             }
         }
         return false;
+    }
+
+    private void removeFromItemOwner(Item item) {
+        itemOwner.remove(item.toString());
     }
 
     private void swapItem(Item item, ArrayList<Item> fromThis, ArrayList<Item> toThis) {

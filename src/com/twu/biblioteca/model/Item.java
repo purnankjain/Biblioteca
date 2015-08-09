@@ -8,4 +8,6 @@ public interface Item {
     String toString();
     void assignTo(User user);
     void recoverFrom(User user);
+
+    boolean isWithUser(User user);
 }

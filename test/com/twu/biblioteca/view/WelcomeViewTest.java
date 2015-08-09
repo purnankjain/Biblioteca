@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.UserDatabase;
 import com.twu.biblioteca.view.*;

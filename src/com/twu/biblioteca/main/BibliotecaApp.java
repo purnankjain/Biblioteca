@@ -41,13 +41,13 @@ public class BibliotecaApp {
 
         ArrayList<User> registeredUser = new ArrayList<>();
         registeredUser.add(new User("111-1111", "asd", "Ram", "ram@mail.com", "9999",
-                new ArrayList<Book>(), UserRoles.ADMIN_ROLE));
+                new ArrayList<Book>(), new ArrayList<Movie>(), UserRoles.ADMIN_ROLE));
         registeredUser.add(new User("111-1112", "asd", "Sham", "Shyaam@mail.com", "9999",
-                new ArrayList<Book>(), UserRoles.NORMAL_USER));
+                new ArrayList<Book>(), new ArrayList<Movie>(), UserRoles.NORMAL_USER));
         registeredUser.add(new User("111-1113", "asd", "kaam", "kaam@mail.com", "9999",
-                new ArrayList<Book>(), UserRoles.NORMAL_USER));
+                new ArrayList<Book>(), new ArrayList<Movie>(), UserRoles.NORMAL_USER));
         InputView inputView = new InputView(bufferedReader);
-        User nullUser = new User("", "", "", "", "", null, UserRoles.NULL_USER);
+        User nullUser = new User("", "", "", "", "", null, null, UserRoles.NULL_USER);
         UserDatabase userDatabase = new UserDatabase(registeredUser, nullUser);
         LibrarianMenuView librarianMenuView = new LibrarianMenuView(inputView);
         NullUserView nullUserView = new NullUserView("");
@@ -63,9 +63,9 @@ public class BibliotecaApp {
         operationHashMap.put("checkout movie",
                 new CheckOutView(movieLibrarySection, inputView, "CheckOut Movie Successful", "CheckOut Unsuccessful"));
         operationHashMap.put("return book",
-                new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "CheckOut Unsuccessful"));
+                new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "Return Unsuccessful"));
         operationHashMap.put("return movie",
-                new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "CheckOut Unsuccessful"));
+                new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "Return Unsuccessful"));
         operationHashMap.put("my profile", new ListUserDetails("User Details : "));
         operationHashMap.put("logout", logOutView);
         operationHashMap.put("quit", new QuitView());

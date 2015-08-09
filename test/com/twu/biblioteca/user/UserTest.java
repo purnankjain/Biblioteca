@@ -1,8 +1,7 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.model.Book;
-import com.twu.biblioteca.user.User;
-import com.twu.biblioteca.user.UserRoles;
+import com.twu.biblioteca.model.Movie;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ public class UserTest {
 
     @Before
     public void initialise() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), UserRoles.ADMIN_ROLE);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), new ArrayList<Movie>(), UserRoles.ADMIN_ROLE);
         books = new ArrayList<Book>();
         books.add(new Book("Harry", "JK", 2001));
     }
@@ -36,7 +35,7 @@ public class UserTest {
 
     @Test
     public void shouldRemoveFromList() {
-        user = new User("", "", "", "", "", books, null);
+        user = new User("", "", "", "", "", books, new ArrayList<Movie>(), null);
         user.removeFromUserBookList(new Book("Harry", "JK", 2001));
         books.remove(new Book("Harry", "JK", 2001));
         assertEquals(books, user.getAllBooks());
@@ -44,7 +43,7 @@ public class UserTest {
 
     @Test
     public void checkWhetherUserHasBookOrNot() {
-        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, UserRoles.NORMAL_USER);
+        user = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", books, new ArrayList<Movie>(), UserRoles.NORMAL_USER);
         assertEquals(true, user.hasBook(new Book("Harry", "JK", 2001)));
     }
 
@@ -57,7 +56,7 @@ public class UserTest {
 
     @Test
     public void shouldCheckEqualityOfTwoUsers() {
-        User user2 = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), UserRoles.NORMAL_USER);
+        User user2 = new User("Ram", "asd", "Ajay", "ajaygupta@yahoo.com", "9999", new ArrayList<Book>(), new ArrayList<Movie>(), UserRoles.NORMAL_USER);
 
         assertEquals(user2, user);
     }

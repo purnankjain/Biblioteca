@@ -28,11 +28,16 @@ public class Movie implements Item{
 
     @Override
     public void assignTo(User user) {
-
+        user.adddMovieToMovieList(this);
     }
 
     @Override
     public void recoverFrom(User user) {
+        user.removeMovieFromMovieList(this);
+    }
 
+    @Override
+    public boolean isWithUser(User user) {
+        return user.hasMovie(this);
     }
 }

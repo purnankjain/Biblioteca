@@ -1,9 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.Controller;
+import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.user.User;
+import com.twu.biblioteca.view.CheckOutView;
 import com.twu.biblioteca.view.InputView;
 import com.twu.biblioteca.view.LibrarianMenuView;
-import com.twu.biblioteca.view.ReturnItemView;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -11,10 +13,9 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ReturnItemViewTest {
+public class CheckOutViewTest {
 
-
-    ReturnItemView returnItemView;
+    CheckOutView checkOutView;
     Controller controller;
     InputView inputView;
     LibrarySection librarySection;
@@ -28,7 +29,7 @@ public class ReturnItemViewTest {
         inputView = mock(InputView.class);
         controller = mock(Controller.class);
         librarianMenuView = new LibrarianMenuView(null);
-        returnItemView = new ReturnItemView(librarySection, inputView, "", "");
+        checkOutView = new CheckOutView(librarySection, inputView, "", "");
     }
 
     @Test
@@ -37,7 +38,6 @@ public class ReturnItemViewTest {
         when(librarySection.checkOutItem("", user)).thenReturn(true);
         when(controller.menuView(user)).thenReturn(librarianMenuView);
 
-        assertEquals(LibrarianMenuView.class, returnItemView.renderView(controller, user).getClass());
+        assertEquals(LibrarianMenuView.class, checkOutView.renderView(controller, user).getClass());
     }
-
 }

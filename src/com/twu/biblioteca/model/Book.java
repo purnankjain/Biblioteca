@@ -35,6 +35,11 @@ public class Book implements Item{
     }
 
     @Override
+    public boolean isWithUser(User user) {
+        return user.hasBook(this);
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

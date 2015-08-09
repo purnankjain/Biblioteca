@@ -96,10 +96,13 @@ public class LibrarySectionTest {
         bookList = new ArrayList<Item>();
         Book mockBook = mock(Book.class);
         bookList.add(mockBook);
-        librarySection = new LibrarySection(new ArrayList<Item>(), bookList, null);
+        HashMap<String, String> hm = new HashMap<>();
+        librarySection = new LibrarySection(new ArrayList<Item>(), bookList, hm);
         User user = mock(User.class);
 
         when(mockBook.isTitled("Hello")).thenReturn(true);
+        when(user.hasBook(mockBook)).thenReturn(true);
+        when(mockBook.isWithUser(user)).thenReturn(true);
 
         assertEquals(true, librarySection.returnThisItem("Hello", user));
     }

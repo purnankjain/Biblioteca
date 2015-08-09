@@ -1,9 +1,9 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.view;
 
+import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.user.User;
 import com.twu.biblioteca.user.UserDatabase;
 import com.twu.biblioteca.user.UserRoles;
-import com.twu.biblioteca.view.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -28,7 +28,7 @@ public class LoginViewTest {
         userDatabase = mock(UserDatabase.class);
         librarianMenuView = new LibrarianMenuView(inputView);
         userMenuView = mock(UserMenuView.class);
-        mockUser = new User("", "", "", "", "", null, UserRoles.ADMIN_ROLE);
+        mockUser = new User("", "", "", "", "", null, null, UserRoles.ADMIN_ROLE);
         nullUserView = mock(NullUserView.class);
         controller = mock(Controller.class);
         loginView = new LoginView(inputView, userDatabase);

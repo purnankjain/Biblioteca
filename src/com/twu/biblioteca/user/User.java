@@ -2,6 +2,7 @@ package com.twu.biblioteca.user;
 
 import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.model.Book;
+import com.twu.biblioteca.model.Movie;
 import com.twu.biblioteca.view.IView;
 
 import java.util.ArrayList;
@@ -13,16 +14,18 @@ public class User {
     private String email;
     private String phoneNumber;
     private ArrayList<Book> checkedOutBooks;
+    private ArrayList<Movie> checkedOutMovies;
     private UserRoles role;
 
     public User(String libraryNumber, String password, String name, String email, String phoneNumber,
-                ArrayList<Book> checkedOutBooks, UserRoles role) {
+                ArrayList<Book> checkedOutBooks, ArrayList<Movie> checkedOutMovies, UserRoles role) {
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.checkedOutBooks = checkedOutBooks;
+        this.checkedOutMovies = checkedOutMovies;
         this.role = role;
     }
 
@@ -45,6 +48,10 @@ public class User {
     public void addBookToUserBookList(Book book) {
         checkedOutBooks.add(book);
     }
+
+    public void adddMovieToMovieList(Movie movie) {
+        checkedOutMovies.add(movie);
+    }
     
     public ArrayList<Book> getAllBooks() {
         return checkedOutBooks;
@@ -58,6 +65,17 @@ public class User {
         }
         return false;
     }
+
+    public boolean hasMovie(Movie movie) {
+        for(Movie thisMovie : checkedOutMovies) {
+            if(thisMovie.equals(movie)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 
     public boolean hasRole(UserRoles thatRole) {
         return role.equals(thatRole);
@@ -98,5 +116,9 @@ public class User {
 
     public void removeFromUserBookList(Book book) {
         checkedOutBooks.remove(book);
+    }
+
+    public void removeMovieFromMovieList(Movie movie) {
+        checkedOutMovies.remove(movie);
     }
 }

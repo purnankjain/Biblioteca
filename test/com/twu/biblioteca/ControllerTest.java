@@ -18,7 +18,7 @@ public class ControllerTest {
 
     @Before
     public void initialise() {
-        user = new User("", "" ,"", "", "", null, UserRoles.ADMIN_ROLE);
+        user = new User("", "" ,"", "", "", null, null, UserRoles.ADMIN_ROLE);
         librarianMenuView = new LibrarianMenuView(null);
         nullUserView = new NullUserView("");
         controller = new Controller(librarianMenuView, null, nullUserView, null, null, null, null, user);
