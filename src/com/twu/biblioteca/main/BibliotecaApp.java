@@ -1,7 +1,6 @@
 package com.twu.biblioteca.main;
 
 import com.twu.biblioteca.BibliotecaApplication;
-import com.twu.biblioteca.ConfirmationHandler;
 import com.twu.biblioteca.Controller;
 import com.twu.biblioteca.LibrarySection;
 import com.twu.biblioteca.model.Book;
@@ -36,7 +35,6 @@ public class BibliotecaApp {
         movieList.add(new Movie("Dave", 2005, "blah", "unrated"));
         LibrarySection movieLibrarySection =
                 new LibrarySection(movieList, new ArrayList<Item>(), new HashMap<String, String>());
-        ConfirmationHandler confirmationHandler = new ConfirmationHandler(view);
         User loggedInUser = new User();
 
         ArrayList<User> registeredUser = new ArrayList<>();
@@ -69,7 +67,7 @@ public class BibliotecaApp {
         operationHashMap.put("my profile", new ListUserDetails("User Details : "));
         operationHashMap.put("logout", logOutView);
         operationHashMap.put("quit", new QuitView());
-        operationHashMap.put(" ", new InvalidOperationView());
+        operationHashMap.put(" ", new InvalidOperationView("Invalid Operation"));
 
         HashMap<String, IView> adminOperationMap = new HashMap<>();
         adminOperationMap.put("list checkedout books", new ListUnavailableItemsView(bookLibrarySection, "CheckedOut Books"));

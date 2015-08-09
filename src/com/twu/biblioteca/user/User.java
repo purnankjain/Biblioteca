@@ -49,7 +49,7 @@ public class User {
         checkedOutBooks.add(book);
     }
 
-    public void adddMovieToMovieList(Movie movie) {
+    public void addMovieToMovieList(Movie movie) {
         checkedOutMovies.add(movie);
     }
     

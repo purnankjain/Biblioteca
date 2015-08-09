@@ -5,7 +5,11 @@ import com.twu.biblioteca.user.User;
 
 public class InvalidOperationView implements IView {
 
-    String invalidMessage = "Invalid selection";
+    String invalidMessage;
+
+    public InvalidOperationView(String invalid) {
+        invalidMessage = invalid;
+    }
 
     @Override
     public IView renderView(Controller controller, User user) {

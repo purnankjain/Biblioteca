@@ -28,7 +28,7 @@ public class Movie implements Item{
 
     @Override
     public void assignTo(User user) {
-        user.adddMovieToMovieList(this);
+        user.addMovieToMovieList(this);
     }
 
     @Override
