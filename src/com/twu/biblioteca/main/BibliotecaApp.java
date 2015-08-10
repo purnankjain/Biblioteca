@@ -22,7 +22,6 @@ public class BibliotecaApp {
     public static void main(String[] args) {
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        View view = new View(bufferedReader);
         ArrayList<Item> bookList = new ArrayList<Item>();
         Book book1 = new Book("The Alchemist", "Paulo Coelho", 1988);
         Book book2 = new Book("Harry Potter", "J.K Rowling", 2005);
@@ -64,7 +63,7 @@ public class BibliotecaApp {
                 new ReturnItemView(bookLibrarySection, inputView, "Return Book Successful", "Return Unsuccessful"));
         operationHashMap.put("return movie",
                 new ReturnItemView(movieLibrarySection, inputView, "Return Movie Successful", "Return Unsuccessful"));
-        operationHashMap.put("my profile", new ListUserDetails("User Details : "));
+        operationHashMap.put("my profile", new ListUserDetailsView("User Details : "));
         operationHashMap.put("logout", logOutView);
         operationHashMap.put("quit", new QuitView());
         operationHashMap.put(" ", new InvalidOperationView("Invalid Operation"));
@@ -76,7 +75,7 @@ public class BibliotecaApp {
         Controller controller = new Controller(librarianMenuView, loginView, nullUserView, userMenuView,
                 welcomeView, operationHashMap, adminOperationMap, loggedInUser);
 
-        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(view, loggedInUser, controller);
+        BibliotecaApplication bibliotecaApplication = new BibliotecaApplication(controller);
         bibliotecaApplication.start();
     }
 }
